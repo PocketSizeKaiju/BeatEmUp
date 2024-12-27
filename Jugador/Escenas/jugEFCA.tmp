@@ -1,0 +1,370 @@
+[gd_scene load_steps=18 format=3 uid="uid://twcgvo3cib26"]
+
+[ext_resource type="Texture2D" uid="uid://eqgkq85mxb30" path="res://Assets/DaruSpritePack.png" id="1_qip30"]
+[ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/maquinaDeEstadoJugador.gd" id="2_1fc5y"]
+
+[sub_resource type="GDScript" id="GDScript_weiio"]
+script/source = "class_name Daru
+extends CharacterBody2D
+
+const DIR_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer as AnimationPlayer
+@onready var reset_ataques: Timer = $ResetAtaques as Timer
+@onready var maquina_de_estados: MaquinaDeEstadoJugador = $MaquinaDeEstados as MaquinaDeEstadoJugador
+
+const RAPIDEZ = 150.0
+const VELOCIDAD_SALTO = -300.0
+
+var puntosAtaque = 3;
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed(\"accion\") && puntosAtaque == 3:
+		reset_ataques.start();
+		animation_player.play(\"Ataque_1\");
+		puntosAtaque = puntosAtaque-1;
+	elif Input.is_action_just_pressed(\"accion\") && puntosAtaque == 2:
+		reset_ataques.start();
+		animation_player.play(\"Ataque_2\");
+		puntosAtaque = puntosAtaque-1;
+	elif Input.is_action_just_pressed(\"accion\") && puntosAtaque == 1:
+		reset_ataques.start();
+		animation_player.play(\"Ataque_3\");
+		puntosAtaque = puntosAtaque-1;
+
+func _physics_process(delta: float) -> void:
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	if (Input.is_action_just_pressed(\"saltar\") ||
+	Input.is_action_just_pressed(\"arriba\")) and is_on_floor():
+		velocity.y = VELOCIDAD_SALTO
+		
+	var direccion := Input.get_axis(\"izquierda\", \"derecha\")
+	print(direccion)
+	if direccion:
+		velocity.x = direccion * RAPIDEZ
+	else:
+		velocity.x = move_toward(velocity.x, 0, RAPIDEZ)
+	move_and_slide()
+
+func _termino_animacion(anim_name: StringName) -> void:
+	if anim_name == \"Ataque_3\":
+		puntosAtaque = 3;
+	animation_player.play(\"Quieta\");
+
+func _cuando_reset_ataques_timeout() -> void:
+	puntosAtaque = 3;
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vw1h"]
+size = Vector2(21, 51)
+
+[sub_resource type="Animation" id="Animation_yg0wn"]
+resource_name = "Ataque_1"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_cmio7"]
+resource_name = "Ataque_2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_733fm"]
+resource_name = "Ataque_3"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.1, 0.133333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_hc8ma"]
+resource_name = "Caer_Derecha"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+
+[sub_resource type="Animation" id="Animation_6qwy1"]
+resource_name = "Caer_Izquierda"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_0nccx"]
+resource_name = "Caminar_Derecha"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 5]
+}
+
+[sub_resource type="Animation" id="Animation_k73na"]
+resource_name = "Caminar_Izquierda"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_3tq3w"]
+resource_name = "Quieta"
+length = 0.33
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166, 0.33),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_m3qgf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_4npr0"]
+resource_name = "Saltar_Derecha"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="Animation" id="Animation_fcprt"]
+resource_name = "Saltar_Izquierda"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_swnyj"]
+resource_name = "caminar"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4, 0.533333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19, 20]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_twle7"]
+_data = {
+"Ataque_1": SubResource("Animation_yg0wn"),
+"Ataque_2": SubResource("Animation_cmio7"),
+"Ataque_3": SubResource("Animation_733fm"),
+"Caer_Derecha": SubResource("Animation_hc8ma"),
+"Caer_Izquierda": SubResource("Animation_6qwy1"),
+"Caminar_Derecha": SubResource("Animation_0nccx"),
+"Caminar_Izquierda": SubResource("Animation_k73na"),
+"Quieta": SubResource("Animation_3tq3w"),
+"RESET": SubResource("Animation_m3qgf"),
+"Saltar_Derecha": SubResource("Animation_4npr0"),
+"Saltar_Izquierda": SubResource("Animation_fcprt"),
+"caminar": SubResource("Animation_swnyj")
+}
+
+[node name="Jugador" type="CharacterBody2D"]
+script = SubResource("GDScript_weiio")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -28)
+texture = ExtResource("1_qip30")
+hframes = 6
+vframes = 3
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -25.5)
+shape = SubResource("RectangleShape2D_1vw1h")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_twle7")
+}
+autoplay = "Quieta"
+
+[node name="ResetAtaques" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="MaquinaDeEstados" type="Node" parent="."]
+script = ExtResource("2_1fc5y")
+
+[node name="Quieta" type="Node" parent="MaquinaDeEstados"]
+
+[node name="Moviendose" type="Node" parent="MaquinaDeEstados"]
+
+[node name="Aire" type="Node" parent="MaquinaDeEstados"]
+
+[node name="Atacando" type="Node" parent="MaquinaDeEstados"]
+
+[node name="AtacandoAire" type="Node" parent="MaquinaDeEstados"]

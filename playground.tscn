@@ -1,0 +1,170 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyj8llmegngqi"]
+
+[ext_resource type="PackedScene" uid="uid://twcgvo3cib26" path="res://Jugador/Escenas/jugador.tscn" id="1_jcobk"]
+[ext_resource type="Texture2D" uid="uid://cari0g5cb5l80" path="res://Assets/icon.svg" id="2_43n08"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p78gc"]
+size = Vector2(290, 13.75)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5lbqs"]
+
+[node name="Playground" type="Node2D"]
+
+[node name="Jugador" parent="." instance=ExtResource("1_jcobk")]
+position = Vector2(-273, -1040)
+
+[node name="plataforma" type="StaticBody2D" parent="."]
+position = Vector2(-287, -891)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma"]
+shape = SubResource("RectangleShape2D_p78gc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="plataforma"]
+modulate = Color(0.754432, 0.000377538, 0.740199, 1)
+scale = Vector2(15.8889, 0.109375)
+texture = ExtResource("2_43n08")
+hframes = 7
+
+[node name="plataforma2" type="StaticBody2D" parent="."]
+position = Vector2(24, -928)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma2"]
+shape = SubResource("RectangleShape2D_p78gc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="plataforma2"]
+modulate = Color(0.754432, 0.000377538, 0.740199, 1)
+scale = Vector2(15.8889, 0.109375)
+texture = ExtResource("2_43n08")
+hframes = 7
+
+[node name="plataforma3" type="StaticBody2D" parent="."]
+position = Vector2(-924, -1333)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma3"]
+shape = SubResource("RectangleShape2D_p78gc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="plataforma3"]
+modulate = Color(0.754432, 0.000377538, 0.740199, 1)
+scale = Vector2(15.8889, 0.109375)
+texture = ExtResource("2_43n08")
+hframes = 7
+
+[node name="plataforma4" type="StaticBody2D" parent="."]
+position = Vector2(-302, -1326)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma4"]
+shape = SubResource("RectangleShape2D_p78gc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="plataforma4"]
+modulate = Color(0.754432, 0.000377538, 0.740199, 1)
+scale = Vector2(15.8889, 0.109375)
+texture = ExtResource("2_43n08")
+hframes = 7
+
+[node name="plataforma5" type="StaticBody2D" parent="."]
+position = Vector2(516, -1374)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma5"]
+shape = SubResource("RectangleShape2D_p78gc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="plataforma5"]
+modulate = Color(0.754432, 0.000377538, 0.740199, 1)
+scale = Vector2(15.8889, 0.109375)
+texture = ExtResource("2_43n08")
+hframes = 7
+
+[node name="plataforma6" type="StaticBody2D" parent="."]
+position = Vector2(135, 242)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma6"]
+shape = SubResource("RectangleShape2D_p78gc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="plataforma6"]
+modulate = Color(0.754432, 0.000377538, 0.740199, 1)
+scale = Vector2(15.8889, 0.109375)
+texture = ExtResource("2_43n08")
+hframes = 7
+
+[node name="plataforma7" type="StaticBody2D" parent="."]
+position = Vector2(792, -105)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma7"]
+shape = SubResource("RectangleShape2D_p78gc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="plataforma7"]
+modulate = Color(0.754432, 0.000377538, 0.740199, 1)
+scale = Vector2(15.8889, 0.109375)
+texture = ExtResource("2_43n08")
+hframes = 7
+
+[node name="plataforma8" type="StaticBody2D" parent="."]
+position = Vector2(365, -256)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma8"]
+shape = SubResource("RectangleShape2D_p78gc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="plataforma8"]
+modulate = Color(0.754432, 0.000377538, 0.740199, 1)
+scale = Vector2(15.8889, 0.109375)
+texture = ExtResource("2_43n08")
+hframes = 7
+
+[node name="plataforma9" type="StaticBody2D" parent="."]
+position = Vector2(-80, -275)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma9"]
+shape = SubResource("RectangleShape2D_p78gc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="plataforma9"]
+modulate = Color(0.754432, 0.000377538, 0.740199, 1)
+scale = Vector2(15.8889, 0.109375)
+texture = ExtResource("2_43n08")
+hframes = 7
+
+[node name="plataforma10" type="StaticBody2D" parent="."]
+position = Vector2(-631, -468)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma10"]
+shape = SubResource("RectangleShape2D_p78gc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="plataforma10"]
+modulate = Color(0.754432, 0.000377538, 0.740199, 1)
+scale = Vector2(15.8889, 0.109375)
+texture = ExtResource("2_43n08")
+hframes = 7
+
+[node name="plataforma11" type="StaticBody2D" parent="."]
+position = Vector2(-862, -778)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma11"]
+shape = SubResource("RectangleShape2D_p78gc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="plataforma11"]
+modulate = Color(0.754432, 0.000377538, 0.740199, 1)
+scale = Vector2(15.8889, 0.109375)
+texture = ExtResource("2_43n08")
+hframes = 7
+
+[node name="piso" type="StaticBody2D" parent="."]
+position = Vector2(198, 494)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="piso"]
+shape = SubResource("WorldBoundaryShape2D_5lbqs")
+
+[node name="Sprite2D" type="Sprite2D" parent="piso"]
+modulate = Color(0.754432, 0.000377538, 0.740199, 1)
+position = Vector2(722, 60)
+scale = Vector2(295.667, 1)
+texture = ExtResource("2_43n08")
+hframes = 7

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://twcgvo3cib26"]
+
+[ext_resource type="Script" path="res://jugador.gd" id="1_axope"]
+[ext_resource type="Texture2D" uid="uid://vyqa8wdgpcd" path="res://Assets/117273.png" id="1_pq5es"]
+
+[node name="Jugador" type="CharacterBody2D"]
+script = ExtResource("1_axope")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(14, -34)
+texture = ExtResource("1_pq5es")
+hframes = 8
+vframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

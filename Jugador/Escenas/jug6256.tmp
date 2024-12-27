@@ -1,0 +1,383 @@
+[gd_scene load_steps=33 format=3 uid="uid://twcgvo3cib26"]
+
+[ext_resource type="Texture2D" uid="uid://eqgkq85mxb30" path="res://Assets/DaruSpritePack.png" id="1_qip30"]
+[ext_resource type="Script" path="res://Jugador/Secuencias De Comando/jugador.gd" id="1_qqhll"]
+[ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/maquinaDeEstadoJugador.gd" id="2_1fc5y"]
+[ext_resource type="PackedScene" uid="uid://chb1hlkcnx1d0" path="res://NodosGenerales/HurtBox/caja_danio.tscn" id="3_qumtf"]
+[ext_resource type="PackedScene" uid="uid://bu3ljko7nu1jj" path="res://NodosGenerales/HitBox/HitBox.tscn" id="4_44ktm"]
+[ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/estado_inactivo.gd" id="5_rg1q2"]
+[ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/estado_caminar.gd" id="6_oklnm"]
+[ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/estado_aire.gd" id="7_c6u15"]
+[ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/estado_cayendo.gd" id="8_0rr7w"]
+[ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/estado_atacar.gd" id="9_5jwjr"]
+[ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/estado_atacar_2.gd" id="10_5d3hh"]
+[ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/estado_atacar_3.gd" id="11_4pm5d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqvgr"]
+size = Vector2(19, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8mbym"]
+size = Vector2(6, 6)
+
+[sub_resource type="Animation" id="Animation_kpnw2"]
+resource_name = "Atacando_2_Izquierda"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_37xa1"]
+resource_name = "Atacando_Derecha"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_yg0wn"]
+resource_name = "Atacando_Izquierda"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_0nccx"]
+resource_name = "Caminar_Derecha"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 5]
+}
+
+[sub_resource type="Animation" id="Animation_k73na"]
+resource_name = "Caminar_Izquierda"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 5]
+}
+
+[sub_resource type="Animation" id="Animation_hc8ma"]
+resource_name = "Cayendo_Derecha"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+
+[sub_resource type="Animation" id="Animation_6qwy1"]
+resource_name = "Cayendo_Izquierda"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+
+[sub_resource type="Animation" id="Animation_3tq3w"]
+resource_name = "Quieta_Derecha"
+length = 0.33
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166, 0.33),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_ao022"]
+resource_name = "Quieta_Izquierda"
+length = 0.33
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166, 0.33),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_m3qgf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_4npr0"]
+resource_name = "Saltar_Derecha"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="Animation" id="Animation_fcprt"]
+resource_name = "Saltar_Izquierda"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="Animation" id="Animation_swnyj"]
+resource_name = "caminar"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4, 0.533333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19, 20]
+}
+
+[sub_resource type="Animation" id="Animation_cmio7"]
+resource_name = "Atacando_2_Derecha"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_733fm"]
+resource_name = "Atacando_3_Izquierda"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.1, 0.133333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_wfiay"]
+resource_name = "Atacando_3_Derecha"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.1, 0.133333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_twle7"]
+_data = {
+"Atacando_2_Derecha": SubResource("Animation_cmio7"),
+"Atacando_2_Izquierda": SubResource("Animation_kpnw2"),
+"Atacando_3_Derecha": SubResource("Animation_wfiay"),
+"Atacando_3_Izquierda": SubResource("Animation_733fm"),
+"Atacando_Derecha": SubResource("Animation_37xa1"),
+"Atacando_Izquierda": SubResource("Animation_yg0wn"),
+"Caminar_Derecha": SubResource("Animation_0nccx"),
+"Caminar_Izquierda": SubResource("Animation_k73na"),
+"Cayendo_Derecha": SubResource("Animation_hc8ma"),
+"Cayendo_Izquierda": SubResource("Animation_6qwy1"),
+"Quieta_Derecha": SubResource("Animation_3tq3w"),
+"Quieta_Izquierda": SubResource("Animation_ao022"),
+"RESET": SubResource("Animation_m3qgf"),
+"Saltar_Derecha": SubResource("Animation_4npr0"),
+"Saltar_Izquierda": SubResource("Animation_fcprt"),
+"caminar": SubResource("Animation_swnyj")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nj4en"]
+size = Vector2(14, 46.5)
+
+[node name="Jugador" type="CharacterBody2D"]
+script = ExtResource("1_qqhll")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -24.5)
+shape = SubResource("RectangleShape2D_rqvgr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -28)
+texture = ExtResource("1_qip30")
+hframes = 6
+vframes = 3
+
+[node name="HurtBox" parent="Sprite2D" instance=ExtResource("3_qumtf")]
+position = Vector2(0, 28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HurtBox"]
+position = Vector2(-5, -32)
+shape = SubResource("RectangleShape2D_8mbym")
+debug_color = Color(0.992785, 0, 0.24713, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_twle7")
+}
+autoplay = "Quieta_Derecha"
+
+[node name="ResetAtaques" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="MaquinaDeEstados" type="Node" parent="."]
+script = ExtResource("2_1fc5y")
+
+[node name="Quieta" type="Node" parent="MaquinaDeEstados"]
+script = ExtResource("5_rg1q2")
+
+[node name="Moviendose" type="Node" parent="MaquinaDeEstados"]
+script = ExtResource("6_oklnm")
+
+[node name="Aire" type="Node" parent="MaquinaDeEstados"]
+script = ExtResource("7_c6u15")
+
+[node name="Cayendo" type="Node" parent="MaquinaDeEstados"]
+script = ExtResource("8_0rr7w")
+
+[node name="Atacando" type="Node" parent="MaquinaDeEstados"]
+script = ExtResource("9_5jwjr")
+
+[node name="Atacando_2" type="Node" parent="MaquinaDeEstados"]
+script = ExtResource("10_5d3hh")
+
+[node name="Atacando_3" type="Node" parent="MaquinaDeEstados"]
+script = ExtResource("11_4pm5d")
+
+[node name="AtacandoAire" type="Node" parent="MaquinaDeEstados"]
+
+[node name="HitBox" parent="." instance=ExtResource("4_44ktm")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -21.75)
+shape = SubResource("RectangleShape2D_nj4en")
+debug_color = Color(0.821177, 0.731721, 0.379619, 0.42)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -16.0
+offset_top = -67.0
+offset_right = 17.0
+offset_bottom = -53.0
+theme_override_font_sizes/font_size = 10
+text = "Estado"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(8, -36)
+zoom = Vector2(4, 4)
