@@ -448,9 +448,6 @@ libraries = {
 }
 autoplay = "Quieta_Derecha"
 
-[node name="ResetAtaques" type="Timer" parent="."]
-wait_time = 0.5
-
 [node name="MaquinaDeEstados" type="Node" parent="."]
 script = ExtResource("2_1fc5y")
 
@@ -496,4 +493,4 @@ vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(8, -36)
-zoom = Vector2(4, 4)
+zoom = Vector2(2, 2)

@@ -13,7 +13,6 @@ var largo_cuerda_actual
 signal cambioDireccion(nueva_direccion: Vector2)
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var reset_ataques: Timer = $ResetAtaques
 @onready var maquina_de_estados: MaquinaDeEstadoJugador = $MaquinaDeEstados as MaquinaDeEstadoJugador
 @onready var sprite_2d: Sprite2D = $Sprite2D as Sprite2D
 
@@ -48,7 +47,7 @@ func _physics_process(_delta: float) -> void:
 	queue_redraw()
 	if enganchado:
 		balancear(_delta)
-		velocity *= 0.975 #velocidad del balanceo
+		velocity *= 0.995 #velocidad del balanceo
 	# end cosas gancho
 	
 	move_and_slide()
@@ -83,14 +82,6 @@ func direccionAnimacion() -> String:
 	#elif direccion_cardinal == Vector2.UP:
 	#	return "Arriba"
 
-func _termino_animacion(anim_name: StringName) -> void:
-	if anim_name == "Ataque_3":
-		puntosAtaque = 3;
-	animation_player.play("Quieta");
-
-func _cuando_reset_ataques_timeout() -> void:
-	puntosAtaque = 3;
-
 # cosas gancho
 func gancho():
 	$Raycast.look_at(get_global_mouse_position())
@@ -114,17 +105,19 @@ func balancear(delta):
 	var vel_rad = cos(angulo) * velocity.length()
 	velocity += radio.normalized() * - vel_rad
 	
-	if velocity.y > 0:
-		velocity.y *= 0.55
-	else:
-		velocity.x *= 1.65
-	
 	if global_position.distance_to(pos_gancho) > largo_cuerda_actual:
 		global_position = pos_gancho + radio.normalized() * largo_cuerda_actual
 	
-	velocity += (pos_gancho - global_position).normalized() * 15000 * delta
+	if Input.is_action_pressed("arriba"):
+		velocity += (pos_gancho - global_position).normalized() * 15000 * delta
+	elif Input.is_action_pressed("abajo"):
+		velocity -= (pos_gancho - global_position).normalized() * 15000 * delta
+	else:
+		var vel_mod = Vector2(2.5, 1)
+		velocity *= vel_mod
 
 func _draw() -> void:
 	if enganchado:
-		draw_line(Vector2(0, -30), to_local(pos_gancho), Color(0.35, 0.7, 0.9), 2, true) #cyan
+		draw_line(Vector2(0, -30), to_local(pos_gancho), Color(0.35, 0.7, 0.9), 1, true) #cyan
+
 # end cosas gancho

@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyj8llmegngqi"]
+[gd_scene load_steps=11 format=3 uid="uid://dyj8llmegngqi"]
 
 [ext_resource type="PackedScene" uid="uid://twcgvo3cib26" path="res://Jugador/Escenas/jugador.tscn" id="1_jcobk"]
 [ext_resource type="Texture2D" uid="uid://cari0g5cb5l80" path="res://Assets/icon.svg" id="2_43n08"]
+[ext_resource type="Texture2D" uid="uid://ddxwtcwusixul" path="res://Assets/parallaxTEST/1.png" id="3_d1mhs"]
+[ext_resource type="Texture2D" uid="uid://ct81egqm7vvwk" path="res://Assets/parallaxTEST/2.png" id="4_v78iq"]
+[ext_resource type="Texture2D" uid="uid://uao60mh6wuqv" path="res://Assets/parallaxTEST/4.png" id="6_lvrlj"]
+[ext_resource type="Texture2D" uid="uid://bk3p53d06wmah" path="res://Assets/parallaxTEST/5.png" id="7_8pwl8"]
+[ext_resource type="Texture2D" uid="uid://b7n246wt38kod" path="res://Assets/parallaxTEST/7.png" id="9_3swhg"]
+[ext_resource type="Texture2D" uid="uid://cn7yp6fi831u5" path="res://Assets/parallaxTEST/9.png" id="10_25dcd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p78gc"]
 size = Vector2(290, 13.75)
@@ -13,144 +19,146 @@ size = Vector2(290, 13.75)
 [node name="Jugador" parent="." instance=ExtResource("1_jcobk")]
 position = Vector2(-273, -1040)
 
-[node name="plataforma" type="StaticBody2D" parent="."]
+[node name="Plataformas" type="Node" parent="."]
+
+[node name="plataforma" type="StaticBody2D" parent="Plataformas"]
 position = Vector2(-287, -891)
 collision_layer = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/plataforma"]
 shape = SubResource("RectangleShape2D_p78gc")
 
-[node name="Sprite2D2" type="Sprite2D" parent="plataforma"]
+[node name="Sprite2D2" type="Sprite2D" parent="Plataformas/plataforma"]
 modulate = Color(0.754432, 0.000377538, 0.740199, 1)
 scale = Vector2(15.8889, 0.109375)
 texture = ExtResource("2_43n08")
 hframes = 7
 
-[node name="plataforma2" type="StaticBody2D" parent="."]
+[node name="plataforma2" type="StaticBody2D" parent="Plataformas"]
 position = Vector2(24, -928)
 collision_layer = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/plataforma2"]
 shape = SubResource("RectangleShape2D_p78gc")
 
-[node name="Sprite2D2" type="Sprite2D" parent="plataforma2"]
+[node name="Sprite2D2" type="Sprite2D" parent="Plataformas/plataforma2"]
 modulate = Color(0.754432, 0.000377538, 0.740199, 1)
 scale = Vector2(15.8889, 0.109375)
 texture = ExtResource("2_43n08")
 hframes = 7
 
-[node name="plataforma3" type="StaticBody2D" parent="."]
+[node name="plataforma3" type="StaticBody2D" parent="Plataformas"]
 position = Vector2(-924, -1333)
 collision_layer = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/plataforma3"]
 shape = SubResource("RectangleShape2D_p78gc")
 
-[node name="Sprite2D2" type="Sprite2D" parent="plataforma3"]
+[node name="Sprite2D2" type="Sprite2D" parent="Plataformas/plataforma3"]
 modulate = Color(0.754432, 0.000377538, 0.740199, 1)
 scale = Vector2(15.8889, 0.109375)
 texture = ExtResource("2_43n08")
 hframes = 7
 
-[node name="plataforma4" type="StaticBody2D" parent="."]
+[node name="plataforma4" type="StaticBody2D" parent="Plataformas"]
 position = Vector2(-302, -1326)
 collision_layer = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/plataforma4"]
 shape = SubResource("RectangleShape2D_p78gc")
 
-[node name="Sprite2D2" type="Sprite2D" parent="plataforma4"]
+[node name="Sprite2D2" type="Sprite2D" parent="Plataformas/plataforma4"]
 modulate = Color(0.754432, 0.000377538, 0.740199, 1)
 scale = Vector2(15.8889, 0.109375)
 texture = ExtResource("2_43n08")
 hframes = 7
 
-[node name="plataforma5" type="StaticBody2D" parent="."]
+[node name="plataforma5" type="StaticBody2D" parent="Plataformas"]
 position = Vector2(516, -1374)
 collision_layer = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/plataforma5"]
 shape = SubResource("RectangleShape2D_p78gc")
 
-[node name="Sprite2D2" type="Sprite2D" parent="plataforma5"]
+[node name="Sprite2D2" type="Sprite2D" parent="Plataformas/plataforma5"]
 modulate = Color(0.754432, 0.000377538, 0.740199, 1)
 scale = Vector2(15.8889, 0.109375)
 texture = ExtResource("2_43n08")
 hframes = 7
 
-[node name="plataforma6" type="StaticBody2D" parent="."]
+[node name="plataforma6" type="StaticBody2D" parent="Plataformas"]
 position = Vector2(135, 242)
 collision_layer = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/plataforma6"]
 shape = SubResource("RectangleShape2D_p78gc")
 
-[node name="Sprite2D2" type="Sprite2D" parent="plataforma6"]
+[node name="Sprite2D2" type="Sprite2D" parent="Plataformas/plataforma6"]
 modulate = Color(0.754432, 0.000377538, 0.740199, 1)
 scale = Vector2(15.8889, 0.109375)
 texture = ExtResource("2_43n08")
 hframes = 7
 
-[node name="plataforma7" type="StaticBody2D" parent="."]
+[node name="plataforma7" type="StaticBody2D" parent="Plataformas"]
 position = Vector2(792, -105)
 collision_layer = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma7"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/plataforma7"]
 shape = SubResource("RectangleShape2D_p78gc")
 
-[node name="Sprite2D2" type="Sprite2D" parent="plataforma7"]
+[node name="Sprite2D2" type="Sprite2D" parent="Plataformas/plataforma7"]
 modulate = Color(0.754432, 0.000377538, 0.740199, 1)
 scale = Vector2(15.8889, 0.109375)
 texture = ExtResource("2_43n08")
 hframes = 7
 
-[node name="plataforma8" type="StaticBody2D" parent="."]
+[node name="plataforma8" type="StaticBody2D" parent="Plataformas"]
 position = Vector2(365, -256)
 collision_layer = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma8"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/plataforma8"]
 shape = SubResource("RectangleShape2D_p78gc")
 
-[node name="Sprite2D2" type="Sprite2D" parent="plataforma8"]
+[node name="Sprite2D2" type="Sprite2D" parent="Plataformas/plataforma8"]
 modulate = Color(0.754432, 0.000377538, 0.740199, 1)
 scale = Vector2(15.8889, 0.109375)
 texture = ExtResource("2_43n08")
 hframes = 7
 
-[node name="plataforma9" type="StaticBody2D" parent="."]
+[node name="plataforma9" type="StaticBody2D" parent="Plataformas"]
 position = Vector2(-80, -275)
 collision_layer = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma9"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/plataforma9"]
 shape = SubResource("RectangleShape2D_p78gc")
 
-[node name="Sprite2D2" type="Sprite2D" parent="plataforma9"]
+[node name="Sprite2D2" type="Sprite2D" parent="Plataformas/plataforma9"]
 modulate = Color(0.754432, 0.000377538, 0.740199, 1)
 scale = Vector2(15.8889, 0.109375)
 texture = ExtResource("2_43n08")
 hframes = 7
 
-[node name="plataforma10" type="StaticBody2D" parent="."]
+[node name="plataforma10" type="StaticBody2D" parent="Plataformas"]
 position = Vector2(-631, -468)
 collision_layer = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma10"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/plataforma10"]
 shape = SubResource("RectangleShape2D_p78gc")
 
-[node name="Sprite2D2" type="Sprite2D" parent="plataforma10"]
+[node name="Sprite2D2" type="Sprite2D" parent="Plataformas/plataforma10"]
 modulate = Color(0.754432, 0.000377538, 0.740199, 1)
 scale = Vector2(15.8889, 0.109375)
 texture = ExtResource("2_43n08")
 hframes = 7
 
-[node name="plataforma11" type="StaticBody2D" parent="."]
+[node name="plataforma11" type="StaticBody2D" parent="Plataformas"]
 position = Vector2(-862, -778)
 collision_layer = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma11"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/plataforma11"]
 shape = SubResource("RectangleShape2D_p78gc")
 
-[node name="Sprite2D2" type="Sprite2D" parent="plataforma11"]
+[node name="Sprite2D2" type="Sprite2D" parent="Plataformas/plataforma11"]
 modulate = Color(0.754432, 0.000377538, 0.740199, 1)
 scale = Vector2(15.8889, 0.109375)
 texture = ExtResource("2_43n08")
@@ -168,3 +176,53 @@ position = Vector2(722, 60)
 scale = Vector2(295.667, 1)
 texture = ExtResource("2_43n08")
 hframes = 7
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Fondo" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(1920, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Fondo"]
+texture = ExtResource("3_d1mhs")
+centered = false
+
+[node name="FondoCueva" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1920, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FondoCueva"]
+texture = ExtResource("4_v78iq")
+centered = false
+
+[node name="CuevaFrente" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1920, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/CuevaFrente"]
+texture = ExtResource("6_lvrlj")
+centered = false
+
+[node name="CuevaMasFrente" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(1920, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/CuevaMasFrente"]
+texture = ExtResource("7_8pwl8")
+centered = false
+
+[node name="MasCueva" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(1920, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/MasCueva"]
+texture = ExtResource("9_3swhg")
+centered = false
+
+[node name="MasCueva2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.9, 0.9)
+motion_mirroring = Vector2(1920, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/MasCueva2"]
+texture = ExtResource("10_25dcd")
+centered = false

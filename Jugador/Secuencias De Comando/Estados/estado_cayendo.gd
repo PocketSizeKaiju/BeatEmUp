@@ -26,9 +26,7 @@ func proceso( _delta: float) -> Estado:
 func fisica (_delta: float) -> Estado:
 	if not jugador.is_on_floor():
 		jugador.velocity += jugador.get_gravity() * _delta
-	
-	if !jugador.is_on_floor():
-		jugador.velocity.x = jugador.direccion.x * moviendose.velocidad_mover
+		jugador.velocity.x = jugador.direccion.x * moviendose.velocidad_mover * 10
 	
 	if jugador.is_on_floor():
 		return quieta
