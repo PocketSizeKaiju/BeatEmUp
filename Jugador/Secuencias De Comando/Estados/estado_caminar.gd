@@ -1,7 +1,7 @@
 class_name Estado_Caminar
 extends Estado
 
-@export var velocidad_mover : float = 100.0
+@export var velocidad_mover : float = 151.0
 
 @onready var quieta: Estado_Quieta = $"../Quieta" as Estado
 @onready var aire: Estado = $"../Aire" as Estado

@@ -16,7 +16,7 @@ signal cambioDireccion(nueva_direccion: Vector2)
 @onready var maquina_de_estados: MaquinaDeEstadoJugador = $MaquinaDeEstados as MaquinaDeEstadoJugador
 @onready var sprite_2d: Sprite2D = $Sprite2D as Sprite2D
 
-const VELOCIDAD_SALTO = -400.0
+const VELOCIDAD_SALTO = -500.0
 const RAPIDEZ = 150.0
 const DIR_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 
@@ -100,7 +100,6 @@ func obtener_pos_gancho():
 
 func balancear(delta):
 	var radio = global_position - pos_gancho
-	if velocity.length() < 0.01 or radio.length() < 10: return
 	var angulo = acos(radio.dot(velocity) / (radio.length() * velocity.length()))
 	var vel_rad = cos(angulo) * velocity.length()
 	velocity += radio.normalized() * - vel_rad
