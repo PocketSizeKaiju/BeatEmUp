@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://digxr6s08v7kn"]
+[gd_scene load_steps=5 format=4 uid="uid://cw8h3kg3iyip6"]
 
 [ext_resource type="Texture2D" uid="uid://cwb0r3vafrjxk" path="res://Assets/Cueva/Tileset/CuevaTileSet.png" id="1_qxgft"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p78gc"]
-size = Vector2(321, 66)
+size = Vector2(322.75, 64)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j0534"]
 texture = ExtResource("1_qxgft")
