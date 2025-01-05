@@ -1,8 +1,8 @@
 [gd_scene load_steps=33 format=3 uid="uid://twcgvo3cib26"]
 
-[ext_resource type="Texture2D" uid="uid://eqgkq85mxb30" path="res://Assets/DaruSpritePack.png" id="1_qip30"]
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/jugador.gd" id="1_qqhll"]
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/maquinaDeEstadoJugador.gd" id="2_1fc5y"]
+[ext_resource type="Texture2D" uid="uid://tv8ipbfodn6d" path="res://Assets/texture.png" id="2_s3kii"]
 [ext_resource type="PackedScene" uid="uid://chb1hlkcnx1d0" path="res://NodosGenerales/HurtBox/caja_danio.tscn" id="3_qumtf"]
 [ext_resource type="PackedScene" uid="uid://bu3ljko7nu1jj" path="res://NodosGenerales/HitBox/HitBox.tscn" id="4_44ktm"]
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/estado_inactivo.gd" id="5_rg1q2"]
@@ -81,38 +81,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 1, 2]
-}
-
-[sub_resource type="Animation" id="Animation_37xa1"]
-resource_name = "Atacando_Derecha"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
-}
-
-[sub_resource type="Animation" id="Animation_yg0wn"]
-resource_name = "Atacando_Izquierda"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
 }
 
 [sub_resource type="Animation" id="Animation_0nccx"]
@@ -231,6 +199,42 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/HurtBox:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 28)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/HurtBox/CollisionShape2D:shape:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6, 6)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/HurtBox/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4, -34)]
+}
 
 [sub_resource type="Animation" id="Animation_4npr0"]
 resource_name = "Saltar_Derecha"
@@ -282,14 +286,118 @@ tracks/0/keys = {
 "values": [16, 17, 18, 19, 20]
 }
 
+[sub_resource type="Animation" id="Animation_vk8ku"]
+resource_name = "Atacando_Izquierda"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/HurtBox:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(3, 28), Vector2(2, 55), Vector2(-14, 43)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/HurtBox/CollisionShape2D:shape:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(6, 6), Vector2(6, 6), Vector2(12, 15), Vector2(29, 22.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/HurtBox/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-4, -34), Vector2(-4, -34), Vector2(29, -42)]
+}
+
+[sub_resource type="Animation" id="Animation_xrsjd"]
+resource_name = "Atacando_Derecha"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/HurtBox:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(3, 28), Vector2(2, 55), Vector2(-14, 43)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/HurtBox/CollisionShape2D:shape:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(6, 6), Vector2(6, 6), Vector2(12, 15), Vector2(29, 22.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/HurtBox/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-4, -34), Vector2(-4, -34), Vector2(29, -42)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_twle7"]
 _data = {
 "Atacando_2_Derecha": SubResource("Animation_cmio7"),
 "Atacando_2_Izquierda": SubResource("Animation_kpnw2"),
 "Atacando_3_Derecha": SubResource("Animation_wfiay"),
 "Atacando_3_Izquierda": SubResource("Animation_733fm"),
-"Atacando_Derecha": SubResource("Animation_37xa1"),
-"Atacando_Izquierda": SubResource("Animation_yg0wn"),
+"Atacando_Derecha": SubResource("Animation_xrsjd"),
+"Atacando_Izquierda": SubResource("Animation_vk8ku"),
 "Caminar_Derecha": SubResource("Animation_0nccx"),
 "Caminar_Izquierda": SubResource("Animation_k73na"),
 "Cayendo_Derecha": SubResource("Animation_hc8ma"),
@@ -306,9 +414,11 @@ _data = {
 size = Vector2(14, 46.5)
 
 [node name="Jugador" type="CharacterBody2D"]
+collision_mask = 3
 script = ExtResource("1_qqhll")
 
 [node name="Raycast" type="Node2D" parent="."]
+visible = false
 
 [node name="RayCast1" type="RayCast2D" parent="Raycast"]
 position = Vector2(14, -25)
@@ -430,15 +540,16 @@ shape = SubResource("RectangleShape2D_rqvgr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -28)
-texture = ExtResource("1_qip30")
+texture = ExtResource("2_s3kii")
 hframes = 6
 vframes = 3
 
 [node name="HurtBox" parent="Sprite2D" instance=ExtResource("3_qumtf")]
+unique_name_in_owner = true
 position = Vector2(0, 28)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HurtBox"]
-position = Vector2(-5, -32)
+position = Vector2(-4, -34)
 shape = SubResource("RectangleShape2D_8mbym")
 debug_color = Color(0.992785, 0, 0.24713, 0.42)
 
@@ -475,6 +586,7 @@ script = ExtResource("11_4pm5d")
 [node name="AtacandoAire" type="Node" parent="MaquinaDeEstados"]
 
 [node name="HitBox" parent="." instance=ExtResource("4_44ktm")]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, -21.75)

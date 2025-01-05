@@ -14,8 +14,7 @@ var continuar_combo: bool = false
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer" as AnimationPlayer
 #@onready var animation_player_ataque: AnimationPlayer = $"../../Sprite2D/EfectoAtaque/AnimationPlayer" as AnimationPlayer
 #@onready var audio: AudioStreamPlayer2D = $"../../Audio/AudioStreamPlayer2D" as AudioStreamPlayer2D
-#@onready var caja_danio: HurtBox = %CajaDanioAtaque as HurtBox
-
+@onready var caja_danio: HurtBox = %HurtBox as HurtBox
 
 #Que pasa cuando el jugador entra este estado
 func entrar() -> void:
@@ -30,13 +29,13 @@ func entrar() -> void:
 	atacando = true
 	
 	await get_tree().create_timer(0.075).timeout
-	#caja_danio.monitoring = true
+	caja_danio.monitoring = true
 
 #Que pase cuando el jugador sale del estado
 func salir() -> void:
 	animation_player.animation_finished.disconnect(terminarAtaque)
 	atacando = false
-	#caja_danio.monitoring = false
+	caja_danio.monitoring = false
 
 #Que pasa durante el _process update del estado
 func proceso( _delta: float) -> Estado:
