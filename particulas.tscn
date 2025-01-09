@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://b51bvx7e280qb"]
+
+[sub_resource type="Curve" id="Curve_utd84"]
+_data = [Vector2(0.0674157, 1), 0.0, 0.0, 0, 0, Vector2(0.97191, 0.0659341), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_20xdi"]
+_data = [Vector2(0.0168539, 1), 0.0, 0.0, 0, 0, Vector2(0.977528, 0.307692), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_v3o6n"]
+offsets = PackedFloat32Array(0, 0.113333, 0.366667, 0.673333, 0.926667)
+colors = PackedColorArray(0.835294, 0.113725, 0.2, 1, 0.810172, 0.336015, 0.191096, 1, 0.866716, 0.569305, 0.0957775, 1, 1, 0.977213, 0.37058, 1, 0.937255, 0.792157, 0.560784, 0.188235)
+
+[node name="Explosion" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+visible = false
+emitting = false
+amount = 40
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_utd84")
+
+[node name="Fire" type="Node2D" parent="."]
+visible = false
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Fire"]
+amount = 600
+lifetime = 0.4
+emission_shape = 1
+emission_sphere_radius = 10.0
+gravity = Vector2(0, -600)
+radial_accel_min = -50.0
+radial_accel_max = -40.0
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_20xdi")
+color_ramp = SubResource("Gradient_v3o6n")
+
+[node name="Rain" type="Node2D" parent="."]
+visible = false
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Rain"]
+amount = 151
+lifetime = 0.6
+emission_shape = 3
+emission_rect_extents = Vector2(150, 1)
+gravity = Vector2(-200, 980)
+scale_amount_min = 0.2
+color = Color(0.466667, 1, 1, 1)

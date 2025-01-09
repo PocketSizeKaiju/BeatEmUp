@@ -12,14 +12,14 @@ var continuar_combo: bool = false
 @onready var atacando_2: Estado_Atacar_2 = $"../Atacando_2"
 
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer" as AnimationPlayer
-#@onready var animation_player_ataque: AnimationPlayer = $"../../Sprite2D/EfectoAtaque/AnimationPlayer" as AnimationPlayer
+@onready var f_xs_animation_player: AnimationPlayer = $"../../FXs/FXsAnimationPlayer" as AnimationPlayer
 #@onready var audio: AudioStreamPlayer2D = $"../../Audio/AudioStreamPlayer2D" as AudioStreamPlayer2D
 @onready var caja_danio: HurtBox = %HurtBox as HurtBox
 
 #Que pasa cuando el jugador entra este estado
 func entrar() -> void:
 	jugador.actualizarAnimacion("Atacando")
-	#animation_player_ataque.play("atacar_" + jugador.direccionAnimacion())
+	f_xs_animation_player.play("Rayo_Vertical_" + jugador.direccionAnimacion())
 	animation_player.animation_finished.connect(terminarAtaque)
 	
 	#audio.stream = sonido_ataque

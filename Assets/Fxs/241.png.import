@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqooekqbsf8xl"
-path="res://.godot/imported/CuevaTiles14.png-234c4da736e0ebe63c45d4222d84a915.ctex"
+uid="uid://cg8btndx2woo4"
+path="res://.godot/imported/241.png-3738f608654345fb6a8457c78b912713.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cueva/Tileset/Separados/CuevaTiles14.png"
-dest_files=["res://.godot/imported/CuevaTiles14.png-234c4da736e0ebe63c45d4222d84a915.ctex"]
+source_file="res://Assets/Fxs/241.png"
+dest_files=["res://.godot/imported/241.png-3738f608654345fb6a8457c78b912713.ctex"]
 
 [params]
 

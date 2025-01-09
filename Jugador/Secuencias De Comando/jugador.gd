@@ -65,7 +65,6 @@ func asignarDireccion() -> bool:
 	
 	direccion_cardinal = nueva_direccion
 	cambioDireccion.emit(direccion_cardinal)
-	sprite_2d.scale.x = -1 if direccion_cardinal == Vector2.LEFT else 1
 	return true
 
 func actualizarAnimacion(estado: String) -> void:
@@ -111,9 +110,6 @@ func balancear(delta):
 		velocity += (pos_gancho - global_position).normalized() * 15000 * delta
 	elif Input.is_action_pressed("abajo"):
 		velocity -= (pos_gancho - global_position).normalized() * 15000 * delta
-	else:
-		var vel_mod = Vector2(2.5, 1)
-		velocity *= vel_mod
 
 func _draw() -> void:
 	if enganchado:

@@ -6,4 +6,5 @@ func _ready() -> void:
 
 
 func tomoDanio(_hit_box: HurtBox) -> void:
+	$Explosion.emitting = true
 	queue_free()

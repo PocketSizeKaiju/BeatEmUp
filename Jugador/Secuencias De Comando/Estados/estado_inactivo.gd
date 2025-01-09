@@ -29,6 +29,8 @@ func proceso( _delta: float) -> Estado:
 	if Input.is_action_just_pressed("accion"):
 		return atacando
 	
+	jugador.velocity = Vector2.ZERO
+	
 	return null
 
 #Que pasa durante el  _physics_process update del estado
