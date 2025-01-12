@@ -83,7 +83,7 @@ func direccionAnimacion() -> String:
 
 # cosas gancho
 func gancho():
-	$Raycast.look_at(get_global_mouse_position())
+	$Raycast.look_at(get_global_mouse_position())	
 	if Input.is_action_just_pressed("click_izquierdo"):
 		pos_gancho = obtener_pos_gancho()
 		if pos_gancho:

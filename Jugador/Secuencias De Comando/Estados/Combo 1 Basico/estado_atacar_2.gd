@@ -19,7 +19,7 @@ var continuar_combo: bool = false
 
 #Que pasa cuando el jugador entra este estado
 func entrar() -> void:
-	jugador.actualizarAnimacion("Atacando_2")
+	jugador.actualizarAnimacion("Atacando_2_Empieza")
 	#animation_player_ataque.play("atacar_" + jugador.direccionAnimacion())
 	animation_player.animation_finished.connect(terminarAtaque)
 	
@@ -44,8 +44,10 @@ func proceso( _delta: float) -> Estado:
 	
 	if atacando == false:
 		if continuar_combo:
+			continuar_combo = false
 			return atacando_3
 		if jugador.direccion == Vector2.ZERO: 
+			continuar_combo = false
 			return quieta
 		else:
 			return moviendose
@@ -62,4 +64,8 @@ func manejarInput (_evento: InputEvent) -> Estado:
 	return null
 
 func terminarAtaque(_nuevoNombreAnimacion: String) -> void:
-	atacando = false
+	if _nuevoNombreAnimacion.contains("Atacando_2_Empieza"):
+		jugador.actualizarAnimacion("Atacando_2_Patada")
+		jugador.velocity.y = jugador.VELOCIDAD_SALTO*0.6
+	else:
+		atacando = false

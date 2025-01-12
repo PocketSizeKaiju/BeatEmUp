@@ -20,6 +20,7 @@ func entrar() -> void:
 	jugador.actualizarAnimacion("Atacando_3")
 	#animation_player_ataque.play("atacar_" + jugador.direccionAnimacion())
 	animation_player.animation_finished.connect(terminarAtaque)
+	jugador.velocity.y = jugador.VELOCIDAD_SALTO*0.6
 	
 	#audio.stream = sonido_ataque
 	#audio.pitch_scale = randf_range(0.9, 1.1)
@@ -56,4 +57,9 @@ func manejarInput (_evento: InputEvent) -> Estado:
 	return null
 
 func terminarAtaque(_nuevoNombreAnimacion: String) -> void:
-	atacando = false
+	if _nuevoNombreAnimacion.contains("Atacando_3_Cayendo") && jugador.is_on_floor():
+		atacando = false
+	elif _nuevoNombreAnimacion.contains("Atacando_3"):
+		jugador.actualizarAnimacion("Atacando_3_Cayendo")
+	else:
+		atacando = false

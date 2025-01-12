@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpd8lwfivryhx"
-path="res://.godot/imported/Atk1Sheet.png-ded99eae6a8d2c4fe0a8eae8102d8f25.ctex"
+uid="uid://bvyux38eoj0bf"
+path="res://.godot/imported/Atk3Sheet.png-c74532a357901212f7ca98dceaf0680a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/DRSprites/Ataques/Ataque_1/Atk1Sheet.png"
-dest_files=["res://.godot/imported/Atk1Sheet.png-ded99eae6a8d2c4fe0a8eae8102d8f25.ctex"]
+source_file="res://Assets/DRSprites/Ataques/Ataque_3/Atk3Sheet.png"
+dest_files=["res://.godot/imported/Atk3Sheet.png-c74532a357901212f7ca98dceaf0680a.ctex"]
 
 [params]
 

@@ -16,8 +16,7 @@ func salir() -> void:
 
 #Que pasa durante el _process update del estado
 func proceso( _delta: float) -> Estado:
-	if (Input.is_action_just_pressed("saltar") ||
-	Input.is_action_just_pressed("arriba")):
+	if 	Input.is_action_just_pressed("arriba"):
 		return aire
 	
 	if jugador.direccion != Vector2.ZERO:

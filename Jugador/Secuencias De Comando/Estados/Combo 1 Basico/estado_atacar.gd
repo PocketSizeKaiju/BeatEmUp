@@ -43,8 +43,10 @@ func proceso( _delta: float) -> Estado:
 	
 	if atacando == false:
 		if continuar_combo:
+			continuar_combo = false
 			return atacando_2
 		if jugador.direccion == Vector2.ZERO: 
+			continuar_combo = false
 			return quieta
 		else:
 			return moviendose

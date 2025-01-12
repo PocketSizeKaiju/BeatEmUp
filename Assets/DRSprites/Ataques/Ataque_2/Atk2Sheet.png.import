@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://re110lag1j10"
-path="res://.godot/imported/DaruAtaques19.png-8ad8373b6f1858f629fadcee7819cf39.ctex"
+uid="uid://bq0k4qk285b38"
+path="res://.godot/imported/Atk2Sheet.png-7496ce25323cecc543f3ef7bd8c5ab51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/DRSprites/Ataques/Ataque_1/Separados/DaruAtaques19.png"
-dest_files=["res://.godot/imported/DaruAtaques19.png-8ad8373b6f1858f629fadcee7819cf39.ctex"]
+source_file="res://Assets/DRSprites/Ataques/Ataque_2/Atk2Sheet.png"
+dest_files=["res://.godot/imported/Atk2Sheet.png-7496ce25323cecc543f3ef7bd8c5ab51.ctex"]
 
 [params]
 
