@@ -4,6 +4,7 @@ extends Estado
 @onready var quieta: Estado_Quieta = $"../Quieta"
 @onready var moviendose: Estado_Caminar = $"../Moviendose"
 @onready var cayendo: Estado_Saltar = $"../Cayendo"
+@onready var atacando: Estado_Atacar_2 = $"../Atacando_2"
 
 #Que pasa cuando el estado se crea
 func init() -> void:
@@ -23,6 +24,10 @@ func proceso( _delta: float) -> Estado:
 	jugador.velocity.x = move_toward(jugador.velocity.x, 0, jugador.RAPIDEZ)
 	jugador.velocity.x = jugador.direccion.x*moviendose.velocidad_mover
 	jugador.move_and_slide()
+	
+	if Input.is_action_just_pressed("accion"):
+		return atacando
+	
 	return null
 
 #Que pasa durante el  _physics_process update del estado

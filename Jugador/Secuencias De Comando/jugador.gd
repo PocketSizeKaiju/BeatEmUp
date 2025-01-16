@@ -3,13 +3,6 @@ extends CharacterBody2D
 
 @onready var label: Label = $Label
 
-# cosas gancho
-var pos_gancho = Vector2()
-var enganchado = false
-var largo_cuerda = 500
-var largo_cuerda_actual
-# end cosas gancho
-
 signal cambioDireccion(nueva_direccion: Vector2)
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -26,10 +19,6 @@ var direccion : Vector2 = Vector2.ZERO
 
 
 func _ready() -> void:
-	# cosas gancho
-	largo_cuerda_actual = largo_cuerda
-	# end cosas gancho
-	
 	maquina_de_estados.inicializar(self)
 
 func _process(_delta: float) -> void:
@@ -42,14 +31,6 @@ func _process(_delta: float) -> void:
 	).normalized()
 
 func _physics_process(_delta: float) -> void:
-	# cosas gancho
-	gancho()
-	queue_redraw()
-	if enganchado:
-		balancear(_delta)
-		velocity *= 0.995 #velocidad del balanceo
-	# end cosas gancho
-	
 	move_and_slide()
 	label.text = maquina_de_estados.estado_actual.name
 
@@ -76,43 +57,3 @@ func direccionAnimacion() -> String:
 		return "Derecha"
 	else:
 		return "Izquierda"
-	#elif direccion_cardinal == Vector2.DOWN:
-	#	return "Abajo"
-	#elif direccion_cardinal == Vector2.UP:
-	#	return "Arriba"
-
-# cosas gancho
-func gancho():
-	$Raycast.look_at(get_global_mouse_position())	
-	if Input.is_action_just_pressed("click_izquierdo"):
-		pos_gancho = obtener_pos_gancho()
-		if pos_gancho:
-			enganchado = true
-			largo_cuerda_actual = global_position.distance_to(pos_gancho)
-	if Input.is_action_just_released("click_izquierdo") and enganchado:
-		enganchado = false
-
-func obtener_pos_gancho():
-	for raycast in $Raycast.get_children():
-		if raycast.is_colliding():
-			return raycast.get_collision_point()
-
-func balancear(delta):
-	var radio = global_position - pos_gancho
-	var angulo = acos(radio.dot(velocity) / (radio.length() * velocity.length()))
-	var vel_rad = cos(angulo) * velocity.length()
-	velocity += radio.normalized() * - vel_rad
-	
-	if global_position.distance_to(pos_gancho) > largo_cuerda_actual:
-		global_position = pos_gancho + radio.normalized() * largo_cuerda_actual
-	
-	if Input.is_action_pressed("arriba"):
-		velocity += (pos_gancho - global_position).normalized() * 15000 * delta
-	elif Input.is_action_pressed("abajo"):
-		velocity -= (pos_gancho - global_position).normalized() * 15000 * delta
-
-func _draw() -> void:
-	if enganchado:
-		draw_line(Vector2(0, -30), to_local(pos_gancho), Color(0.35, 0.7, 0.9), 1, true) #cyan
-
-# end cosas gancho

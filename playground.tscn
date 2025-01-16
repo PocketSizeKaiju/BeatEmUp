@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dyj8llmegngqi"]
+[gd_scene load_steps=13 format=4 uid="uid://dyj8llmegngqi"]
 
 [ext_resource type="PackedScene" uid="uid://twcgvo3cib26" path="res://Jugador/Escenas/jugador.tscn" id="1_jcobk"]
 [ext_resource type="Texture2D" uid="uid://ddxwtcwusixul" path="res://Assets/parallaxTEST/1.png" id="3_d1mhs"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bk3p53d06wmah" path="res://Assets/parallaxTEST/5.png" id="7_8pwl8"]
 [ext_resource type="Texture2D" uid="uid://b7n246wt38kod" path="res://Assets/parallaxTEST/7.png" id="9_3swhg"]
 [ext_resource type="Texture2D" uid="uid://cn7yp6fi831u5" path="res://Assets/parallaxTEST/9.png" id="10_25dcd"]
+[ext_resource type="PackedScene" uid="uid://clrx85fehyw3d" path="res://Enemigos/Wobbuffet/Wobbuffet.tscn" id="10_o8au6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0l1df"]
 texture = ExtResource("4_xje8u")
@@ -178,7 +179,7 @@ sources/0 = SubResource("TileSetAtlasSource_0l1df")
 [node name="Playground" type="Node2D"]
 
 [node name="Jugador" parent="." instance=ExtResource("1_jcobk")]
-position = Vector2(-289, -405)
+position = Vector2(-1085, 408)
 
 [node name="Plataformas" type="Node" parent="."]
 
@@ -214,6 +215,9 @@ position = Vector2(378, -307)
 
 [node name="Cristal8" parent="Props" instance=ExtResource("3_hg05k")]
 position = Vector2(-994, 47)
+
+[node name="Cristal9" parent="Props" instance=ExtResource("3_hg05k")]
+position = Vector2(-547, 713)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -270,3 +274,7 @@ motion_mirroring = Vector2(1920, 1080)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/MasCueva2"]
 texture = ExtResource("10_25dcd")
 centered = false
+
+[node name="Wobbuffet" parent="." instance=ExtResource("10_o8au6")]
+position = Vector2(-688, 735)
+scale = Vector2(1.5, 1.5)

@@ -3,6 +3,7 @@ extends Estado
 
 @onready var quieta: Estado_Quieta = $"../Quieta"
 @onready var moviendose: Estado_Caminar = $"../Moviendose"
+@onready var atacando: Estado_Atacar_3 = $"../Atacando_3"
 
 #Que pasa cuando el estado se crea
 func init() -> void:
@@ -27,6 +28,9 @@ func fisica (_delta: float) -> Estado:
 	if not jugador.is_on_floor():
 		jugador.velocity += jugador.get_gravity() * _delta
 		jugador.velocity.x = jugador.direccion.x * moviendose.velocidad_mover * 10
+	
+	if Input.is_action_just_pressed("accion"):
+		return atacando
 	
 	if jugador.is_on_floor():
 		return quieta

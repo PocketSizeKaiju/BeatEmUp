@@ -1,9 +1,9 @@
-[gd_scene load_steps=43 format=3 uid="uid://twcgvo3cib26"]
+[gd_scene load_steps=42 format=3 uid="uid://twcgvo3cib26"]
 
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/jugador.gd" id="1_qqhll"]
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/maquinaDeEstadoJugador.gd" id="2_1fc5y"]
 [ext_resource type="Texture2D" uid="uid://de6g56xuybyxi" path="res://Assets/DaruSpritePack.png" id="2_5v1x8"]
-[ext_resource type="PackedScene" uid="uid://x66bwt3epwek" path="res://Pokes/Escenas/joltik.tscn" id="2_8pcku"]
+[ext_resource type="Script" path="res://Jugador/Escenas/joltik.gd" id="2_wdadl"]
 [ext_resource type="PackedScene" uid="uid://chb1hlkcnx1d0" path="res://NodosGenerales/HurtBox/caja_danio.tscn" id="3_qumtf"]
 [ext_resource type="PackedScene" uid="uid://bu3ljko7nu1jj" path="res://NodosGenerales/HitBox/HitBox.tscn" id="4_44ktm"]
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/estado_inactivo.gd" id="5_rg1q2"]
@@ -14,7 +14,6 @@
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/Combo 1 Basico/estado_atacar_2.gd" id="10_5d3hh"]
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/Combo 1 Basico/estado_atacar_3.gd" id="11_4pm5d"]
 [ext_resource type="Texture2D" uid="uid://cg8btndx2woo4" path="res://Assets/Fxs/241.png" id="13_1ou5b"]
-[ext_resource type="AudioStream" uid="uid://cm2e27ykcd6lu" path="res://Assets/Sound Effects/Kick-SFX.mp3" id="15_nb04w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rqvgr"]
 size = Vector2(19, 52)
@@ -49,42 +48,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D/HurtBox:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.3, 0.366667, 0.4, 0.466667, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(3, 28), Vector2(3, 28), Vector2(3, 38), Vector2(3, 38), Vector2(-10, 54), Vector2(-10, 54), Vector2(2, 35)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D/HurtBox/CollisionShape2D:shape:size")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(29, 22.5)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D/HurtBox/CollisionShape2D:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(14.3333, -38)]
-}
 
 [sub_resource type="Animation" id="Animation_cmio7"]
 resource_name = "Atacando_2_Empieza_Izquierda"
@@ -112,42 +75,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D/HurtBox:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.3, 0.466667, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(3, 28), Vector2(3, 28), Vector2(3, 38), Vector2(3, 38), Vector2(2, 35)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D/HurtBox/CollisionShape2D:shape:size")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(29, 22.5)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D/HurtBox/CollisionShape2D:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.366667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-20, -27), Vector2(-16, -26), Vector2(-8, -22)]
 }
 
 [sub_resource type="Animation" id="Animation_4w3e6"]
@@ -177,18 +104,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D/HurtBox/CollisionShape2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.433333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(17, -38), Vector2(20, -52)]
-}
 
 [sub_resource type="Animation" id="Animation_mqn5n"]
 resource_name = "Atacando_2_Patada_Izquierda"
@@ -216,18 +131,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D/HurtBox/CollisionShape2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.433333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-21, -38), Vector2(-25, -53)]
 }
 
 [sub_resource type="Animation" id="Animation_mai7m"]
@@ -257,30 +160,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D/HurtBox/CollisionShape2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-18.25, -57.375)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D/HurtBox:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(14, 66)]
-}
 
 [sub_resource type="Animation" id="Animation_0o71a"]
 resource_name = "Atacando_3_Cayendo_Izquierda"
@@ -308,30 +187,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D/HurtBox/CollisionShape2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-18.25, -57.375)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D/HurtBox:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(23, 66)]
 }
 
 [sub_resource type="Animation" id="Animation_wfiay"]
@@ -361,42 +216,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D/HurtBox:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(6, 23), Vector2(3, 34), Vector2(9, 14), Vector2(5, 45), Vector2(-17, 52)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D/HurtBox/CollisionShape2D:shape:size")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(29, 22.5), Vector2(29, 44), Vector2(44, 31.5)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D/HurtBox/CollisionShape2D:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(14.3333, -38), Vector2(14.3333, -40.5)]
-}
 
 [sub_resource type="Animation" id="Animation_tcm6u"]
 resource_name = "Atacando_3_Izquierda"
@@ -424,42 +243,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D/HurtBox:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-32, 23), Vector2(-31, 35), Vector2(-35, 24), Vector2(-30, 45), Vector2(-11, 52)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D/HurtBox/CollisionShape2D:shape:size")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(29, 22.5), Vector2(29, 44), Vector2(44, 31.5)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D/HurtBox/CollisionShape2D:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(14.3333, -38), Vector2(14.3333, -40.5)]
 }
 
 [sub_resource type="Animation" id="Animation_xrsjd"]
@@ -548,10 +331,10 @@ tracks/1/path = NodePath("Sprite2D/HurtBox:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(3, 28), Vector2(2, 55), Vector2(-14, 43), Vector2(-38, 44)]
+"values": [Vector2(3, 28), Vector2(2, 55), Vector2(-14, 43)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1125,11 +908,127 @@ _data = {
 collision_mask = 3
 script = ExtResource("1_qqhll")
 
-[node name="Pokes" type="Node2D" parent="."]
+[node name="Joltik" type="Node2D" parent="."]
+script = ExtResource("2_wdadl")
 
-[node name="Joltik" parent="Pokes" instance=ExtResource("2_8pcku")]
+[node name="Raycast" type="Node2D" parent="Joltik"]
+
+[node name="RayCast1" type="RayCast2D" parent="Joltik/Raycast"]
+position = Vector2(14, -25)
+rotation = -1.5708
+target_position = Vector2(0, 500)
+collision_mask = 2
+
+[node name="RayCast2" type="RayCast2D" parent="Joltik/Raycast"]
+position = Vector2(14, -26)
+rotation = -1.65806
+target_position = Vector2(0, 500)
+collision_mask = 2
+
+[node name="RayCast3" type="RayCast2D" parent="Joltik/Raycast"]
+position = Vector2(14, -24)
+rotation = -1.48353
+target_position = Vector2(0, 500)
+collision_mask = 4098
+
+[node name="RayCast4" type="RayCast2D" parent="Joltik/Raycast"]
+position = Vector2(14, -23)
+rotation = -1.39626
+target_position = Vector2(0, 500)
+collision_mask = 4098
+
+[node name="RayCast5" type="RayCast2D" parent="Joltik/Raycast"]
+position = Vector2(14, -22)
+rotation = -1.309
+target_position = Vector2(0, 500)
+collision_mask = 4098
+
+[node name="RayCast6" type="RayCast2D" parent="Joltik/Raycast"]
+position = Vector2(14, -20)
+rotation = -1.13446
+target_position = Vector2(0, 500)
+collision_mask = 4098
+
+[node name="RayCast7" type="RayCast2D" parent="Joltik/Raycast"]
+position = Vector2(14, -19)
+rotation = -1.0472
+target_position = Vector2(0, 500)
+collision_mask = 4098
+
+[node name="RayCast8" type="RayCast2D" parent="Joltik/Raycast"]
+position = Vector2(14, -18)
+rotation = -0.959931
+target_position = Vector2(0, 500)
+collision_mask = 4098
+
+[node name="RayCast9" type="RayCast2D" parent="Joltik/Raycast"]
+position = Vector2(14, -17)
+rotation = -0.872665
+target_position = Vector2(0, 500)
+collision_mask = 4098
+
+[node name="RayCast10" type="RayCast2D" parent="Joltik/Raycast"]
+position = Vector2(14, -16)
+rotation = -0.785398
+target_position = Vector2(0, 500)
+collision_mask = 4098
+
+[node name="RayCast11" type="RayCast2D" parent="Joltik/Raycast"]
+position = Vector2(14, -21)
+rotation = -1.22173
+target_position = Vector2(0, 500)
+collision_mask = 4098
+
+[node name="RayCast12" type="RayCast2D" parent="Joltik/Raycast"]
+position = Vector2(14, -27)
+rotation = -1.74533
+target_position = Vector2(0, 500)
+collision_mask = 2
+
+[node name="RayCast13" type="RayCast2D" parent="Joltik/Raycast"]
+position = Vector2(14, -28)
+rotation = -1.8326
+target_position = Vector2(0, 500)
+collision_mask = 2
+
+[node name="RayCast14" type="RayCast2D" parent="Joltik/Raycast"]
+position = Vector2(14, -29)
+rotation = -1.91986
+target_position = Vector2(0, 500)
+collision_mask = 2
+
+[node name="RayCast15" type="RayCast2D" parent="Joltik/Raycast"]
+position = Vector2(14, -30)
+rotation = -2.00713
+target_position = Vector2(0, 500)
+collision_mask = 2
+
+[node name="RayCast16" type="RayCast2D" parent="Joltik/Raycast"]
+position = Vector2(14, -31)
+rotation = -2.0944
+target_position = Vector2(0, 500)
+collision_mask = 2
+
+[node name="RayCast17" type="RayCast2D" parent="Joltik/Raycast"]
+position = Vector2(14, -32)
+rotation = -2.18166
+target_position = Vector2(0, 500)
+collision_mask = 2
+
+[node name="RayCast18" type="RayCast2D" parent="Joltik/Raycast"]
+position = Vector2(14, -33)
+rotation = -2.26893
+target_position = Vector2(0, 500)
+collision_mask = 2
+
+[node name="RayCast19" type="RayCast2D" parent="Joltik/Raycast"]
+position = Vector2(14, -34)
+rotation = -2.35619
+target_position = Vector2(0, 500)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0.5, -26)
 shape = SubResource("RectangleShape2D_rqvgr")
 
@@ -1141,9 +1040,8 @@ vframes = 6
 
 [node name="HurtBox" parent="Sprite2D" instance=ExtResource("3_qumtf")]
 unique_name_in_owner = true
+visible = false
 position = Vector2(0, 28)
-collision_mask = 18
-monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HurtBox"]
 position = Vector2(-4, -34)
@@ -1173,21 +1071,17 @@ script = ExtResource("8_0rr7w")
 
 [node name="Atacando" type="Node" parent="MaquinaDeEstados"]
 script = ExtResource("9_5jwjr")
-sonido_ataque = ExtResource("15_nb04w")
 
 [node name="Atacando_2" type="Node" parent="MaquinaDeEstados"]
 script = ExtResource("10_5d3hh")
-sonido_ataque = ExtResource("15_nb04w")
 
 [node name="Atacando_3" type="Node" parent="MaquinaDeEstados"]
 script = ExtResource("11_4pm5d")
-sonido_ataque = ExtResource("15_nb04w")
 
 [node name="AtacandoAire" type="Node" parent="MaquinaDeEstados"]
 
 [node name="HitBox" parent="." instance=ExtResource("4_44ktm")]
 visible = false
-collision_layer = 257
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, -21.75)
@@ -1222,8 +1116,3 @@ frame = 16
 libraries = {
 "": SubResource("AnimationLibrary_a7dmp")
 }
-
-[node name="Audio" type="Node" parent="."]
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("15_nb04w")

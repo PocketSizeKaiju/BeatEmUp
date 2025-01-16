@@ -13,7 +13,11 @@ config_version=5
 config/name="BeatEmUp"
 run/main_scene="res://playground.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
-config/icon="res://Assets/icon.svg"
+config/icon="res://Assets/UI/Cursor.png"
+
+[autoload]
+
+AdministradorGlobalJugador="*res://00 GLOBALES/administrador_global_jugador.gd"
 
 [dotnet]
 

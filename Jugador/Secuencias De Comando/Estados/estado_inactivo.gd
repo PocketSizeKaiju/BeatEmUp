@@ -5,10 +5,12 @@ extends Estado
 @onready var aire: Node = $"../Aire"
 @onready var cayendo: Estado_Saltar = $"../Cayendo"
 @onready var atacando: Estado_Atacar = $"../Atacando"
+@onready var caja_danio: HurtBox = %HurtBox as HurtBox
 
 #Que pasa cuando el jugador entra este estado
 func entrar() -> void:
 	jugador.actualizarAnimacion("Quieta")
+	caja_danio.monitoring = false
 
 #Que pase cuando el jugador sale del estado
 func salir() -> void:

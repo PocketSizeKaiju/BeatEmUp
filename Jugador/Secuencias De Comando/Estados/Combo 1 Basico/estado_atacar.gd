@@ -13,7 +13,7 @@ var continuar_combo: bool = false
 
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer" as AnimationPlayer
 @onready var f_xs_animation_player: AnimationPlayer = $"../../FXs/FXsAnimationPlayer" as AnimationPlayer
-#@onready var audio: AudioStreamPlayer2D = $"../../Audio/AudioStreamPlayer2D" as AudioStreamPlayer2D
+@onready var audio: AudioStreamPlayer2D = $"../../Audio/AudioStreamPlayer2D" as AudioStreamPlayer2D
 @onready var caja_danio: HurtBox = %HurtBox as HurtBox
 
 #Que pasa cuando el jugador entra este estado
@@ -22,9 +22,9 @@ func entrar() -> void:
 	f_xs_animation_player.play("Rayo_Vertical_" + jugador.direccionAnimacion())
 	animation_player.animation_finished.connect(terminarAtaque)
 	
-	#audio.stream = sonido_ataque
-	#audio.pitch_scale = randf_range(0.9, 1.1)
-	#audio.play()
+	audio.stream = sonido_ataque
+	audio.pitch_scale = randf_range(0.8, 1.2)
+	audio.play()
 	
 	atacando = true
 	
