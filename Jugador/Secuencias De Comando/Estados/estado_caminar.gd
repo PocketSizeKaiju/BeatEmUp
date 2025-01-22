@@ -25,8 +25,7 @@ func proceso( _delta: float) -> Estado:
 	if jugador.asignarDireccion():
 		jugador.actualizarAnimacion("Caminar")
 	
-	if (Input.is_action_just_pressed("saltar") ||
-		Input.is_action_just_pressed("arriba")):
+	if Input.is_action_just_pressed("arriba"):
 		return aire
 	
 	if !jugador.is_on_floor():

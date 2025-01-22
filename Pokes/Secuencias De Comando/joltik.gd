@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var entrenador: Jugador = $"../.." as Jugador
+@onready var railgun: Node2D = $Railgun
 
 var pos_gancho = Vector2()
 var enganchado = false
@@ -54,3 +55,6 @@ func balancear(delta):
 func _draw() -> void:
 	if enganchado:
 		draw_line(Vector2(0, -30), to_local(pos_gancho), Color(0.35, 0.7, 0.9), 1, true) #cyan
+
+func startRailgun():
+	railgun.comenzar = true

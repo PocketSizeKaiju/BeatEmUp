@@ -1,4 +1,4 @@
-class_name Estado_Atacar_3
+class_name Railgun
 extends Estado
 
 var atacando: bool = false
@@ -15,15 +15,14 @@ var atacando: bool = false
 @onready var caja_danio: HurtBox = %HurtBox as HurtBox
 
 @onready var pokes: Node2D = $"../../Pokes"
+var joltik = null
 var railgun = null
-var railgueando = false
 
 #Que pasa cuando el jugador entra este estado
 func entrar() -> void:
-	jugador.actualizarAnimacion("Atacando_3")
+	jugador.actualizarAnimacion("Railgun_Empieza")
 	#animation_player_ataque.play("atacar_" + jugador.direccionAnimacion())
 	animation_player.animation_finished.connect(terminarAtaque)
-	jugador.velocity.y = jugador.VELOCIDAD_SALTO*0.6
 	
 	audio.stream = sonido_ataque
 	audio.pitch_scale = randf_range(0.6, 1.1)
@@ -31,30 +30,24 @@ func entrar() -> void:
 	
 	atacando = true
 	
-	await get_tree().create_timer(0.075).timeout
-	caja_danio.monitoring = true
+	if pokes:
+		joltik = pokes.get_node_or_null("Joltik")
+		if joltik:
+			railgun = joltik.get_node_or_null("Railgun")
+			railgun.termino_el_railgun.connect(terminar_railgun)
 
 #Que pase cuando el jugador sale del estado
 func salir() -> void:
 	animation_player.animation_finished.disconnect(terminarAtaque)
+	railgun.termino_el_railgun.disconnect(terminar_railgun)
 	atacando = false
 	caja_danio.monitoring = false
 
 #Que pasa durante el _process update del estado
 func proceso( _delta: float) -> Estado:
-	if !railgueando:
-		jugador.velocity -= jugador.velocity * desacelerar_velocidad * _delta
-	else:
-		jugador.velocity = Vector2.ZERO
-	
 	if pokes:
-		var joltik = pokes.get_node_or_null("Joltik")
-		if Input.is_action_just_pressed("especial") && joltik && !jugador.is_on_floor():
-			railgueando = true
-			joltik.startRailgun()
-			railgun = joltik.get_node_or_null("Railgun")
-			railgun.termino_el_railgun.connect(terminar_railgun)
-	
+		joltik = pokes.get_node_or_null("Joltik")
+
 	if atacando == false:
 		if jugador.direccion == Vector2.ZERO: 
 			return quieta
@@ -71,13 +64,11 @@ func manejarInput (_evento: InputEvent) -> Estado:
 	return null
 
 func terminarAtaque(_nuevoNombreAnimacion: String) -> void:
-	if _nuevoNombreAnimacion.contains("Atacando_3_Cayendo") && jugador.is_on_floor():
-		atacando = false
-	elif _nuevoNombreAnimacion.contains("Atacando_3"):
-		jugador.actualizarAnimacion("Atacando_3_Cayendo")
+	if _nuevoNombreAnimacion.contains("Railgun_Empieza"):
+		joltik.startRailgun()
+		jugador.actualizarAnimacion("Railgun_Tirando")
 	else:
 		atacando = false
 
 func terminar_railgun() -> void:
-	railgueando = false
-	railgun.termino_el_railgun.disconnect(terminar_railgun)
+		jugador.actualizarAnimacion("Railgun_Termina")

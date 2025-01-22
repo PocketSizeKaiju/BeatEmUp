@@ -1,11 +1,14 @@
 class_name Estado_Quieta
 extends Estado
 
-@onready var caminar: Node = $"../Moviendose" as Estado
-@onready var aire: Node = $"../Aire"
-@onready var cayendo: Estado_Saltar = $"../Cayendo"
-@onready var atacando: Estado_Atacar = $"../Atacando"
+@onready var caminar: Estado_Caminar = $"../Moviendose" as Estado
+@onready var aire: Estado_Cayendo = $"../Aire" as Estado
+@onready var cayendo: Estado_Saltar = $"../Cayendo" as Estado
+@onready var atacando: Estado_Atacar = $"../Atacando" as Estado
+@onready var railgun: Railgun = $"../Railgun" as Estado
 @onready var caja_danio: HurtBox = %HurtBox as HurtBox
+
+@onready var pokes: Node2D = $"../../Pokes"
 
 #Que pasa cuando el jugador entra este estado
 func entrar() -> void:
@@ -18,7 +21,7 @@ func salir() -> void:
 
 #Que pasa durante el _process update del estado
 func proceso( _delta: float) -> Estado:
-	if 	Input.is_action_just_pressed("arriba"):
+	if Input.is_action_just_pressed("arriba"):
 		return aire
 	
 	if jugador.direccion != Vector2.ZERO:
@@ -29,6 +32,11 @@ func proceso( _delta: float) -> Estado:
 	
 	if Input.is_action_just_pressed("accion"):
 		return atacando
+	
+	if pokes:
+		var joltik = pokes.get_node_or_null("Joltik")
+		if Input.is_action_just_pressed("especial") && joltik:
+			return railgun
 	
 	jugador.velocity = Vector2.ZERO
 	

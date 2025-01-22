@@ -14,7 +14,7 @@ const RAPIDEZ = 150.0
 const DIR_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 
 var puntosAtaque = 3;
-var direccion_cardinal : Vector2 = Vector2.DOWN
+var direccion_cardinal : Vector2 = Vector2.RIGHT
 var direccion : Vector2 = Vector2.ZERO
 
 

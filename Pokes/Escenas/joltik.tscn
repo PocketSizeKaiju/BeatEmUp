@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://x66bwt3epwek"]
+[gd_scene load_steps=3 format=3 uid="uid://x66bwt3epwek"]
 
 [ext_resource type="Script" path="res://Pokes/Secuencias De Comando/joltik.gd" id="1_5k6v4"]
+[ext_resource type="PackedScene" uid="uid://bs5ucdaqr3h5e" path="res://railgun.tscn" id="2_y5hda"]
 
 [node name="Joltik" type="Node2D"]
 script = ExtResource("1_5k6v4")
@@ -11,112 +12,115 @@ script = ExtResource("1_5k6v4")
 position = Vector2(14, -25)
 rotation = -1.5708
 target_position = Vector2(0, 500)
-collision_mask = 2
+collision_mask = 784
 
 [node name="RayCast2" type="RayCast2D" parent="Raycast"]
 position = Vector2(14, -26)
 rotation = -1.65806
 target_position = Vector2(0, 500)
-collision_mask = 2
+collision_mask = 784
 
 [node name="RayCast3" type="RayCast2D" parent="Raycast"]
 position = Vector2(14, -24)
 rotation = -1.48353
 target_position = Vector2(0, 500)
-collision_mask = 4098
+collision_mask = 784
 
 [node name="RayCast4" type="RayCast2D" parent="Raycast"]
 position = Vector2(14, -23)
 rotation = -1.39626
 target_position = Vector2(0, 500)
-collision_mask = 4098
+collision_mask = 784
 
 [node name="RayCast5" type="RayCast2D" parent="Raycast"]
 position = Vector2(14, -22)
 rotation = -1.309
 target_position = Vector2(0, 500)
-collision_mask = 4098
+collision_mask = 784
 
 [node name="RayCast6" type="RayCast2D" parent="Raycast"]
 position = Vector2(14, -20)
 rotation = -1.13446
 target_position = Vector2(0, 500)
-collision_mask = 4098
+collision_mask = 784
 
 [node name="RayCast7" type="RayCast2D" parent="Raycast"]
 position = Vector2(14, -19)
 rotation = -1.0472
 target_position = Vector2(0, 500)
-collision_mask = 4098
+collision_mask = 784
 
 [node name="RayCast8" type="RayCast2D" parent="Raycast"]
 position = Vector2(14, -18)
 rotation = -0.959931
 target_position = Vector2(0, 500)
-collision_mask = 4098
+collision_mask = 784
 
 [node name="RayCast9" type="RayCast2D" parent="Raycast"]
 position = Vector2(14, -17)
 rotation = -0.872665
 target_position = Vector2(0, 500)
-collision_mask = 4098
+collision_mask = 784
 
 [node name="RayCast10" type="RayCast2D" parent="Raycast"]
 position = Vector2(14, -16)
 rotation = -0.785398
 target_position = Vector2(0, 500)
-collision_mask = 4098
+collision_mask = 784
 
 [node name="RayCast11" type="RayCast2D" parent="Raycast"]
 position = Vector2(14, -21)
 rotation = -1.22173
 target_position = Vector2(0, 500)
-collision_mask = 4098
+collision_mask = 784
 
 [node name="RayCast12" type="RayCast2D" parent="Raycast"]
 position = Vector2(14, -27)
 rotation = -1.74533
 target_position = Vector2(0, 500)
-collision_mask = 2
+collision_mask = 784
 
 [node name="RayCast13" type="RayCast2D" parent="Raycast"]
 position = Vector2(14, -28)
 rotation = -1.8326
 target_position = Vector2(0, 500)
-collision_mask = 2
+collision_mask = 784
 
 [node name="RayCast14" type="RayCast2D" parent="Raycast"]
 position = Vector2(14, -29)
 rotation = -1.91986
 target_position = Vector2(0, 500)
-collision_mask = 2
+collision_mask = 784
 
 [node name="RayCast15" type="RayCast2D" parent="Raycast"]
 position = Vector2(14, -30)
 rotation = -2.00713
 target_position = Vector2(0, 500)
-collision_mask = 2
+collision_mask = 784
 
 [node name="RayCast16" type="RayCast2D" parent="Raycast"]
 position = Vector2(14, -31)
 rotation = -2.0944
 target_position = Vector2(0, 500)
-collision_mask = 2
+collision_mask = 784
 
 [node name="RayCast17" type="RayCast2D" parent="Raycast"]
 position = Vector2(14, -32)
 rotation = -2.18166
 target_position = Vector2(0, 500)
-collision_mask = 2
+collision_mask = 784
 
 [node name="RayCast18" type="RayCast2D" parent="Raycast"]
 position = Vector2(14, -33)
 rotation = -2.26893
 target_position = Vector2(0, 500)
-collision_mask = 2
+collision_mask = 784
 
 [node name="RayCast19" type="RayCast2D" parent="Raycast"]
 position = Vector2(14, -34)
 rotation = -2.35619
 target_position = Vector2(0, 500)
-collision_mask = 2
+collision_mask = 784
+
+[node name="Railgun" parent="." instance=ExtResource("2_y5hda")]
+position = Vector2(13, -27)

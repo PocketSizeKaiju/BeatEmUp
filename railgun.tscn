@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://bs5ucdaqr3h5e"]
+
+[ext_resource type="Texture2D" uid="uid://bn06v0j6q4lpp" path="res://Assets/UI/Cursor.png" id="1_fperi"]
+[ext_resource type="Script" path="res://railgun.gd" id="1_jyfn2"]
+[ext_resource type="Shader" path="res://railgun.gdshader" id="3_443rh"]
+[ext_resource type="PackedScene" uid="uid://chb1hlkcnx1d0" path="res://NodosGenerales/HurtBox/caja_danio.tscn" id="3_qqjab"]
+[ext_resource type="Texture2D" uid="uid://bnqeje58oro6i" path="res://Assets/DRSprites/Ataques/Railgun/rayu.png" id="4_cr2u7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3xmyt"]
+shader = ExtResource("3_443rh")
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_jtrvc"]
+b = Vector2(100, 0)
+
+[node name="Railgun" type="Node2D"]
+visible = false
+script = ExtResource("1_jyfn2")
+
+[node name="TheBoi" type="Sprite2D" parent="."]
+texture = ExtResource("1_fperi")
+flip_h = true
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(100, 0)
+collision_mask = 817
+
+[node name="Line2D" type="Line2D" parent="."]
+material = SubResource("ShaderMaterial_3xmyt")
+points = PackedVector2Array(0, 0, 100, 0)
+width = 3.0
+texture = ExtResource("4_cr2u7")
+texture_mode = 1
+
+[node name="HurtBox" parent="Line2D" instance=ExtResource("3_qqjab")]
+collision_layer = 2
+collision_mask = 784
+monitorable = true
+danio = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Line2D/HurtBox"]
+shape = SubResource("SegmentShape2D_jtrvc")
+debug_color = Color(0.971809, 0, 0.445404, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+
+[connection signal="timeout" from="Timer" to="." method="_cuando_termina_el_tiempo"]
