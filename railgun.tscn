@@ -34,7 +34,7 @@ texture_mode = 1
 [node name="HurtBox" parent="Line2D" instance=ExtResource("3_qqjab")]
 collision_layer = 2
 collision_mask = 784
-monitorable = true
+monitoring = false
 danio = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Line2D/HurtBox"]

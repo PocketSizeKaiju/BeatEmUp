@@ -15,6 +15,7 @@ var comenzar = false
 @onready var collision_shape_2d: CollisionShape2D = $Line2D/HurtBox/CollisionShape2D
 @onready var timer: Timer = $Timer as Timer
 @onready var entrenador: Jugador = $"../../.." as Jugador
+@onready var hurt_box: HurtBox = $Line2D/HurtBox as HurtBox
 
 @export var tiempo: float = 2.5
 
@@ -26,6 +27,7 @@ func _process(_delta: float) -> void:
 		line_2d.width = grosor
 		ray_cast_2d.target_position *= RANGO_MAXIMO
 		comenzar = false
+		hurt_box.monitoring = true
 	
 	if disparando:
 		collision_shape_2d.shape.b = line_2d.points[1] 
@@ -45,4 +47,5 @@ func _cuando_termina_el_tiempo() -> void:
 		visible = false
 		collision_shape_2d.shape.b = Vector2.ZERO 
 		collision_shape_2d.disabled = true
+		hurt_box.monitoring = false
 		emit_signal("termino_el_railgun")

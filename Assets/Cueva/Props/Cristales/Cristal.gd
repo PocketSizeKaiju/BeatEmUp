@@ -8,7 +8,7 @@ func _ready() -> void:
 	$HitBox.Daniado.connect(tomoDanio)
 
 
-func tomoDanio(_hit_box: HurtBox) -> void:
+func tomoDanio(_hit_box: HurtBox, _impulso: Vector2 = Vector2.ZERO) -> void:
 	animation_player.play("Destruir")
 
 func fueDestruido(_nuevoNombreAnimacion: String):

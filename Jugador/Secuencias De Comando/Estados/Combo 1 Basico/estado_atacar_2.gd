@@ -31,6 +31,7 @@ func entrar() -> void:
 	
 	await get_tree().create_timer(0.075).timeout
 	caja_danio.monitoring = true
+	caja_danio.impulso = Vector2(0, 0.5)
 
 #Que pase cuando el jugador sale del estado
 func salir() -> void:

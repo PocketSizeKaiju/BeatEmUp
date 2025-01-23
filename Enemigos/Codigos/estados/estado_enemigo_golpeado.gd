@@ -11,6 +11,7 @@ extends EstadoEnemigo
 var _direccion: Vector2
 var _animacion_termino: bool = false
 var _danio_posicion: Vector2
+var _impulso:Vector2
 
 #Cuando empieza
 func init() -> void:
@@ -21,6 +22,8 @@ func entrar() -> void:
 	enemigo.invulnerable = true
 	_animacion_termino = false
 	_direccion = enemigo.global_position.direction_to(_danio_posicion)
+	if _impulso:
+		_direccion *= _impulso
 	enemigo.asignarDireccion(_direccion)
 	enemigo.velocity = _direccion*(-velocidad_noqueado)
 	enemigo.actualizarAnimacion(nombre_anim)
@@ -42,7 +45,9 @@ func proceso( _delta: float) -> EstadoEnemigo:
 func fisica (_delta: float) -> EstadoEnemigo:
 	return null
 
-func _cuando_enemigo_daniado(caja_danio: HurtBox) -> void:
+func _cuando_enemigo_daniado(caja_danio: HurtBox, impulso: Vector2 = Vector2.ZERO) -> void:
+	if impulso != Vector2.ZERO:
+		_impulso = impulso
 	_danio_posicion = caja_danio.global_position
 	maquina_estado.cambiarEstado(self)
 

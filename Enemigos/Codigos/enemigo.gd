@@ -52,11 +52,11 @@ func direccionAnimacion() -> String:
 	else:
 		return "Izquierda"
 
-func _tomar_danio(caja_danio: HurtBox) -> void:
+func _tomar_danio(caja_danio: HurtBox, impulso: Vector2 = Vector2.ZERO) -> void:
 	if invulnerable == true:
 		return
 	hp -= caja_danio.danio
 	if hp > 0:
-		enemigo_daniado.emit(caja_danio)
+		enemigo_daniado.emit(caja_danio, impulso)
 	else:
 		enemigo_destruido.emit(caja_danio)

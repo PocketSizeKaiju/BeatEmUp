@@ -549,7 +549,6 @@ _data = {
 collision_layer = 272
 collision_mask = 513
 script = ExtResource("1_tdnmu")
-hp = null
 
 [node name="CajaDanio" parent="." instance=ExtResource("2_h33w8")]
 position = Vector2(1, 0)
