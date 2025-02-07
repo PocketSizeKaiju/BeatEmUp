@@ -278,4 +278,3 @@ centered = false
 [node name="Wobbuffet" parent="." instance=ExtResource("10_o8au6")]
 position = Vector2(-688, 735)
 scale = Vector2(1.5, 1.5)
-hp = 10

@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bieeomljdwb2q"]
+
+[ext_resource type="Script" path="res://GUI/HudJugador/hud_jugador.gd" id="1_iomax"]
+[ext_resource type="Texture2D" uid="uid://bf714qgiv0sw2" path="res://Assets/DRSprites/DaruPX.png" id="1_psm2w"]
+
+[node name="HudJugador" type="CanvasLayer"]
+script = ExtResource("1_iomax")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(853, 40)
+texture = ExtResource("1_psm2w")
+region_enabled = true
+region_rect = Rect2(2.64935, 0.00907898, 27.7433, 27.4026)
+
+[node name="HPBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 851.0
+offset_top = 56.0
+offset_right = 855.0
+offset_bottom = 83.0
+step = 1.0
+value = 100.0

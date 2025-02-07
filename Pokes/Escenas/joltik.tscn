@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://x66bwt3epwek"]
 
 [ext_resource type="Script" path="res://Pokes/Secuencias De Comando/joltik.gd" id="1_5k6v4"]
-[ext_resource type="PackedScene" uid="uid://bs5ucdaqr3h5e" path="res://railgun.tscn" id="2_y5hda"]
+[ext_resource type="PackedScene" uid="uid://bs5ucdaqr3h5e" path="res://Efectos/railgun.tscn" id="2_y5hda"]
 
 [node name="Joltik" type="Node2D"]
 script = ExtResource("1_5k6v4")

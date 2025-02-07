@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Inventario" load_steps=4 format=3 uid="uid://bpq5tstu4wabk"]
+
+[ext_resource type="Script" path="res://GUI/Inventario/Scripts/inventory_item.gd" id="1_ohk31"]
+[ext_resource type="Resource" uid="uid://ddgule12dawon" path="res://GUI/Inventario/Items/Joltik.tres" id="2_aoy3i"]
+[ext_resource type="Script" path="res://GUI/Inventario/Scripts/inventario.gd" id="3_awen6"]
+
+[resource]
+script = ExtResource("3_awen6")
+items = Array[ExtResource("1_ohk31")]([ExtResource("2_aoy3i"), null, null, null, null, null])

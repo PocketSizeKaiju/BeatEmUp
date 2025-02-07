@@ -1,9 +1,10 @@
-[gd_scene load_steps=50 format=3 uid="uid://twcgvo3cib26"]
+[gd_scene load_steps=56 format=3 uid="uid://twcgvo3cib26"]
 
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/jugador.gd" id="1_qqhll"]
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/maquinaDeEstadoJugador.gd" id="2_1fc5y"]
 [ext_resource type="Texture2D" uid="uid://de6g56xuybyxi" path="res://Assets/DaruSpritePack.png" id="2_5v1x8"]
 [ext_resource type="PackedScene" uid="uid://x66bwt3epwek" path="res://Pokes/Escenas/joltik.tscn" id="2_8pcku"]
+[ext_resource type="Resource" uid="uid://bpq5tstu4wabk" path="res://GUI/Inventario/Daru_Inventario.tres" id="2_g6fe0"]
 [ext_resource type="PackedScene" uid="uid://chb1hlkcnx1d0" path="res://NodosGenerales/HurtBox/caja_danio.tscn" id="3_qumtf"]
 [ext_resource type="PackedScene" uid="uid://bu3ljko7nu1jj" path="res://NodosGenerales/HitBox/HitBox.tscn" id="4_44ktm"]
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/estado_inactivo.gd" id="5_rg1q2"]
@@ -16,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://cg8btndx2woo4" path="res://Assets/Fxs/241.png" id="13_1ou5b"]
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/estado_railgun.gd" id="14_7xhtb"]
 [ext_resource type="AudioStream" uid="uid://cm2e27ykcd6lu" path="res://Assets/Sound Effects/Kick-SFX.mp3" id="15_nb04w"]
+[ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/estado_golpeado.gd" id="16_0wkw1"]
+[ext_resource type="PackedScene" uid="uid://b84e8inlk8suh" path="res://GUI/Inventario/Escenas/inv_ui.tscn" id="18_6w1up"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rqvgr"]
 size = Vector2(19, 52)
@@ -803,6 +806,64 @@ tracks/1/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_t2k6v"]
+resource_name = "Golpeada_Derecha"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_emb6j"]
+resource_name = "Golpeada_Izquierda"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_3tq3w"]
 resource_name = "Quieta_Derecha"
 length = 0.33
@@ -1360,6 +1421,8 @@ _data = {
 "Caminar_Izquierda": SubResource("Animation_k73na"),
 "Cayendo_Derecha": SubResource("Animation_hc8ma"),
 "Cayendo_Izquierda": SubResource("Animation_6qwy1"),
+"Golpeada_Derecha": SubResource("Animation_t2k6v"),
+"Golpeada_Izquierda": SubResource("Animation_emb6j"),
 "Quieta_Derecha": SubResource("Animation_3tq3w"),
 "Quieta_Izquierda": SubResource("Animation_ao022"),
 "RESET": SubResource("Animation_m3qgf"),
@@ -1449,6 +1512,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Sprite2D:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_13fe3"]
@@ -1579,16 +1654,48 @@ tracks/3/keys = {
 "values": [Vector2(-5, -23)]
 }
 
+[sub_resource type="Animation" id="Animation_fm4me"]
+resource_name = "danio"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.0980392), Color(1, 1, 1, 1), Color(1, 1, 1, 0.196078), Color(1, 1, 1, 1), Color(1, 1, 1, 0.196078), Color(1, 1, 1, 1), Color(1, 1, 1, 0.392157), Color(1, 1, 1, 1), Color(1, 1, 1, 0.588235), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Audio/AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("15_nb04w")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a7dmp"]
 _data = {
 "RESET": SubResource("Animation_yyrdh"),
 "Rayo_Vertical_Derecha": SubResource("Animation_13fe3"),
-"Rayo_Vertical_Izquierda": SubResource("Animation_1ufvg")
+"Rayo_Vertical_Izquierda": SubResource("Animation_1ufvg"),
+"danio": SubResource("Animation_fm4me")
 }
 
 [node name="Jugador" type="CharacterBody2D"]
 collision_mask = 562
 script = ExtResource("1_qqhll")
+inventorio = ExtResource("2_g6fe0")
 
 [node name="Pokes" type="Node2D" parent="."]
 
@@ -1652,8 +1759,10 @@ sonido_ataque = ExtResource("15_nb04w")
 [node name="Railgun" type="Node" parent="MaquinaDeEstados"]
 script = ExtResource("14_7xhtb")
 
+[node name="Golpeada" type="Node" parent="MaquinaDeEstados"]
+script = ExtResource("16_0wkw1")
+
 [node name="HitBox" parent="." instance=ExtResource("4_44ktm")]
-visible = false
 collision_layer = 257
 collision_mask = 48
 
@@ -1694,4 +1803,9 @@ libraries = {
 [node name="Audio" type="Node" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("15_nb04w")
+
+[node name="Inv_UI" parent="." instance=ExtResource("18_6w1up")]
+offset_left = 14.0
+offset_top = -116.0
+offset_right = 55.0
+offset_bottom = -53.0

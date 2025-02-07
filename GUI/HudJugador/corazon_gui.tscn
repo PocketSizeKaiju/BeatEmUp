@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dok3yyl73rxpr"]
+
+[ext_resource type="Script" path="res://ActionAdventure/GUI/hud_jugador/corazon_gui.gd" id="1_jou15"]
+[ext_resource type="Texture2D" uid="uid://cx7c8sbvd6uuy" path="res://ActionAdventure/GUI/hud_jugador/Sprites/health.png" id="1_pnqhm"]
+
+[node name="Corazon" type="Control"]
+custom_minimum_size = Vector2(55, 45)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jou15")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pnqhm")
+centered = false
+hframes = 2
+frame = 1

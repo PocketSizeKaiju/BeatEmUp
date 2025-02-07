@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://bs5ucdaqr3h5e"]
 
 [ext_resource type="Texture2D" uid="uid://bn06v0j6q4lpp" path="res://Assets/UI/Cursor.png" id="1_fperi"]
-[ext_resource type="Script" path="res://railgun.gd" id="1_jyfn2"]
-[ext_resource type="Shader" path="res://railgun.gdshader" id="3_443rh"]
+[ext_resource type="Script" path="res://Efectos/railgun.gd" id="1_jyfn2"]
+[ext_resource type="Shader" path="res://Efectos/railgun.gdshader" id="3_443rh"]
 [ext_resource type="PackedScene" uid="uid://chb1hlkcnx1d0" path="res://NodosGenerales/HurtBox/caja_danio.tscn" id="3_qqjab"]
 [ext_resource type="Texture2D" uid="uid://bnqeje58oro6i" path="res://Assets/DRSprites/Ataques/Railgun/rayu.png" id="4_cr2u7"]
 

@@ -17,6 +17,7 @@ config/icon="res://Assets/UI/Cursor.png"
 
 [autoload]
 
+HudJugador="*res://GUI/HudJugador/hud_jugador.tscn"
 AdministradorGlobalJugador="*res://00 GLOBALES/administrador_global_jugador.gd"
 
 [dotnet]
