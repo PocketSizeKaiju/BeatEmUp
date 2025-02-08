@@ -1696,6 +1696,8 @@ _data = {
 collision_mask = 562
 script = ExtResource("1_qqhll")
 inventorio = ExtResource("2_g6fe0")
+hp = 8
+max_hp = 8
 
 [node name="Pokes" type="Node2D" parent="."]
 

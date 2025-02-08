@@ -91,3 +91,38 @@ func hacer_invulnerable(_duracion: float = 1.0) -> void:
 	await get_tree().create_timer(_duracion).timeout
 	invulnerable = false
 	hit_box.monitoring = true
+
+
+
+
+
+
+# Cheat code
+var sequence = [
+	KEY_UP,
+	KEY_UP,
+	KEY_DOWN,
+	KEY_DOWN,
+	KEY_LEFT,
+	KEY_RIGHT,
+	KEY_LEFT,
+	KEY_RIGHT,
+	KEY_B,
+	KEY_A
+]
+var sequence_index = 0
+
+func cheat_code(event):
+	if event is InputEventKey and event.key_label and event.is_pressed() and not event.is_echo():
+		print(event.key_label)
+		if event.key_label == sequence[sequence_index]:
+			sequence_index += 1
+			if sequence_index == sequence.size():
+				print("ENGAGE UNLIMITED FORM!!")
+				sequence_index = 0
+		else:
+			sequence_index = 0
+		print(sequence_index)
+
+func _input(event: InputEvent) -> void:
+	cheat_code(event)
