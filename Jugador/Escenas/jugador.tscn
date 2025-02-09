@@ -1765,7 +1765,7 @@ script = ExtResource("14_7xhtb")
 script = ExtResource("16_0wkw1")
 
 [node name="HitBox" parent="." instance=ExtResource("4_44ktm")]
-collision_layer = 257
+collision_layer = 1
 collision_mask = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]

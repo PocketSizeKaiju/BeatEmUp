@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dyj8llmegngqi"]
+[gd_scene load_steps=16 format=4 uid="uid://dyj8llmegngqi"]
 
 [ext_resource type="PackedScene" uid="uid://twcgvo3cib26" path="res://Jugador/Escenas/jugador.tscn" id="1_jcobk"]
 [ext_resource type="Texture2D" uid="uid://ddxwtcwusixul" path="res://Assets/parallaxTEST/1.png" id="3_d1mhs"]
@@ -10,6 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://b7n246wt38kod" path="res://Assets/parallaxTEST/7.png" id="9_3swhg"]
 [ext_resource type="Texture2D" uid="uid://cn7yp6fi831u5" path="res://Assets/parallaxTEST/9.png" id="10_25dcd"]
 [ext_resource type="PackedScene" uid="uid://clrx85fehyw3d" path="res://Enemigos/Wobbuffet/Wobbuffet.tscn" id="10_o8au6"]
+[ext_resource type="PackedScene" uid="uid://bexmlsrtwuq3a" path="res://Enemigos/Darumaka/Darumaka.tscn" id="11_qoir6"]
+[ext_resource type="Texture2D" uid="uid://7oy4lle6wno3" path="res://Assets/Pokes/darumaka-galar.png" id="12_quub4"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_4lbxc"]
+vertices = PackedVector2Array(396, 298, 396, 214, 536, 278, 536, 470, 440, 470, -168, 42, -180, 662, -188.43, 662, -170.273, 38.8828, -168, 38.8516, 172, 42, 172, 34.8438, 1368, 20.7266, 1368, 74, 940, 278, 588, 726, 588, 618, 664, 618, 664, 682, 1945.36, 726, 940, 682, 440, 534, 408, 534, 56, 298, 408, 566, 248, 566, 248, 726, -180, 726, 1688, 74, 1688, 106, 1720, 106, 1720, 138, 1336, 438, 1752, 138, 1752, 310, 1720, 310, 1720, 342, 1688, 342, 1688, 374, 1656, 374, 1656, 406, 1592, 406, 1592, 438, 1528, 438, 1528, 470, 1420, 470, 1420, 438, 1580, 554, 1580, 522, 1676, 522, 1676, 490, 1740, 490, 1740, 458, 1772, 458, 1772, 426, 1804, 426, 1804, 394, 1836, 394, 1836, 202, 1868, 202, 1868, 118, 1836, 118, 1836, 54, 1929.22, 14.1094, 1804, 54, 1804, 22, 1740, 22, 1740, 16.3438, 56, 214, 1336, 554)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9), PackedInt32Array(2, 1, 10, 11, 12, 13, 14), PackedInt32Array(15, 16, 17, 18), PackedInt32Array(19, 15, 18, 20), PackedInt32Array(4, 21, 22, 23, 0), PackedInt32Array(22, 24, 25, 23), PackedInt32Array(25, 26, 27, 6, 5, 23), PackedInt32Array(13, 28, 29, 20, 14), PackedInt32Array(20, 29, 30, 31, 32), PackedInt32Array(31, 33, 34, 35), PackedInt32Array(35, 36, 37), PackedInt32Array(37, 38, 39), PackedInt32Array(39, 40, 41), PackedInt32Array(41, 42, 43), PackedInt32Array(43, 44, 45, 46), PackedInt32Array(47, 48, 49, 19), PackedInt32Array(49, 50, 51, 19), PackedInt32Array(51, 52, 53, 19), PackedInt32Array(53, 54, 55, 19), PackedInt32Array(55, 56, 57, 19), PackedInt32Array(57, 58, 59, 19), PackedInt32Array(60, 61, 62, 63), PackedInt32Array(62, 64, 65, 63), PackedInt32Array(65, 66, 67, 63), PackedInt32Array(60, 63, 19, 59), PackedInt32Array(68, 23, 5), PackedInt32Array(68, 5, 10, 1), PackedInt32Array(47, 19, 20, 69), PackedInt32Array(32, 69, 20), PackedInt32Array(46, 32, 31, 35, 37), PackedInt32Array(43, 46, 37, 41), PackedInt32Array(41, 37, 39)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-180, 29, 1939, 4, 1956, 754, -201, 750)])
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0l1df"]
 texture = ExtResource("4_xje8u")
@@ -179,11 +186,14 @@ sources/0 = SubResource("TileSetAtlasSource_0l1df")
 [node name="Playground" type="Node2D"]
 
 [node name="Jugador" parent="." instance=ExtResource("1_jcobk")]
-position = Vector2(-1085, 408)
+position = Vector2(117, 196)
 
-[node name="Plataformas" type="Node" parent="."]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_4lbxc")
 
-[node name="Layer0" type="TileMapLayer" parent="Plataformas"]
+[node name="Plataformas" type="Node" parent="NavigationRegion2D"]
+
+[node name="Layer0" type="TileMapLayer" parent="NavigationRegion2D/Plataformas"]
 modulate = Color(1, 0.473519, 0.565878, 1)
 use_parent_material = true
 position = Vector2(2, 0)
@@ -275,6 +285,46 @@ motion_mirroring = Vector2(1920, 1080)
 texture = ExtResource("10_25dcd")
 centered = false
 
-[node name="Wobbuffet" parent="." instance=ExtResource("10_o8au6")]
+[node name="Node" type="Node" parent="."]
+
+[node name="Wobbuffet" parent="Node" instance=ExtResource("10_o8au6")]
 position = Vector2(-688, 735)
 scale = Vector2(1.5, 1.5)
+
+[node name="Darumaka" parent="Node" node_paths=PackedStringArray("perseguido") instance=ExtResource("11_qoir6")]
+position = Vector2(302, 221)
+perseguido = NodePath("../../Jugador")
+
+[node name="Darumaka2" parent="Node" node_paths=PackedStringArray("perseguido") instance=ExtResource("11_qoir6")]
+position = Vector2(213, 709)
+perseguido = NodePath("../../Jugador")
+
+[node name="Darumaka3" parent="Node" node_paths=PackedStringArray("perseguido") instance=ExtResource("11_qoir6")]
+position = Vector2(156, 681)
+perseguido = NodePath("../../Jugador")
+sprite_distinto = ExtResource("12_quub4")
+
+[node name="Darumaka4" parent="Node" node_paths=PackedStringArray("perseguido") instance=ExtResource("11_qoir6")]
+position = Vector2(111, 711)
+perseguido = NodePath("../../Jugador")
+
+[node name="Darumaka5" parent="Node" node_paths=PackedStringArray("perseguido") instance=ExtResource("11_qoir6")]
+position = Vector2(13, 667)
+perseguido = NodePath("../../Jugador")
+
+[node name="Darumaka6" parent="Node" node_paths=PackedStringArray("perseguido") instance=ExtResource("11_qoir6")]
+position = Vector2(-81, 717)
+perseguido = NodePath("../../Jugador")
+sprite_distinto = ExtResource("12_quub4")
+
+[node name="Darumaka7" parent="Node" node_paths=PackedStringArray("perseguido") instance=ExtResource("11_qoir6")]
+position = Vector2(-159, 668)
+perseguido = NodePath("../../Jugador")
+
+[node name="Darumaka8" parent="Node" node_paths=PackedStringArray("perseguido") instance=ExtResource("11_qoir6")]
+position = Vector2(-133, 701)
+perseguido = NodePath("../../Jugador")
+
+[node name="Darumaka9" parent="Node" node_paths=PackedStringArray("perseguido") instance=ExtResource("11_qoir6")]
+position = Vector2(41, 705)
+perseguido = NodePath("../../Jugador")

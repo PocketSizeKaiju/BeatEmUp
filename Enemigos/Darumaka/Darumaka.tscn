@@ -1,27 +1,28 @@
-[gd_scene load_steps=30 format=3 uid="uid://clrx85fehyw3d"]
+[gd_scene load_steps=30 format=3 uid="uid://bexmlsrtwuq3a"]
 
-[ext_resource type="Script" path="res://Enemigos/Codigos/enemigo.gd" id="1_tdnmu"]
-[ext_resource type="PackedScene" uid="uid://chb1hlkcnx1d0" path="res://NodosGenerales/HurtBox/caja_danio.tscn" id="2_h33w8"]
-[ext_resource type="PackedScene" uid="uid://bu3ljko7nu1jj" path="res://NodosGenerales/HitBox/HitBox.tscn" id="3_7pcth"]
-[ext_resource type="Texture2D" uid="uid://c87ke12ebgni5" path="res://Assets/Pokes/Wobbuffet/wobbuffet.png" id="4_0ebdx"]
-[ext_resource type="AudioStream" uid="uid://cp40lkaq7x84e" path="res://Enemigos/Wobbuffet/Audio/Damage2.ogg" id="5_vrnvq"]
-[ext_resource type="AudioStream" uid="uid://5xw5lmhjdwom" path="res://Enemigos/Wobbuffet/Audio/Damage1.ogg" id="6_k285m"]
-[ext_resource type="Script" path="res://Enemigos/Codigos/MaquinaDeEstadoEnemigo.gd" id="7_rnnxg"]
-[ext_resource type="Script" path="res://Enemigos/Codigos/estados/estado_enemigo_inactivo.gd" id="8_16vhy"]
-[ext_resource type="Script" path="res://Enemigos/Codigos/estados/estado_enemigo_pasear.gd" id="9_a6rna"]
-[ext_resource type="Script" path="res://Enemigos/Codigos/estados/estado_enemigo_golpeado.gd" id="10_cu10u"]
-[ext_resource type="Texture2D" uid="uid://c3uwuowcat52g" path="res://Enemigos/Wobbuffet/Sprites/DestroySmoke.png" id="10_docf7"]
-[ext_resource type="Script" path="res://Enemigos/Codigos/estados/estado_enemigo_destruido.gd" id="11_gxx61"]
+[ext_resource type="Script" path="res://Enemigos/Codigos/enemigo.gd" id="1_ocr1g"]
+[ext_resource type="PackedScene" uid="uid://chb1hlkcnx1d0" path="res://NodosGenerales/HurtBox/caja_danio.tscn" id="2_8kyww"]
+[ext_resource type="PackedScene" uid="uid://bu3ljko7nu1jj" path="res://NodosGenerales/HitBox/HitBox.tscn" id="3_y5k35"]
+[ext_resource type="Texture2D" uid="uid://dki7lmh1a3qxw" path="res://Assets/Pokes/darumaka.png" id="4_vnwsp"]
+[ext_resource type="AudioStream" uid="uid://cp40lkaq7x84e" path="res://Enemigos/Wobbuffet/Audio/Damage2.ogg" id="5_kr415"]
+[ext_resource type="AudioStream" uid="uid://5xw5lmhjdwom" path="res://Enemigos/Wobbuffet/Audio/Damage1.ogg" id="6_sxk0h"]
+[ext_resource type="Script" path="res://Enemigos/Codigos/MaquinaDeEstadoEnemigo.gd" id="7_1ikfn"]
+[ext_resource type="Script" path="res://Enemigos/Codigos/estados/estado_enemigo_inactivo.gd" id="8_rhw40"]
+[ext_resource type="Script" path="res://Enemigos/Codigos/estados/estado_enemigo_pasear.gd" id="9_d5tdt"]
+[ext_resource type="Script" path="res://Enemigos/Codigos/estados/estado_enemigo_golpeado.gd" id="10_tnleu"]
+[ext_resource type="Script" path="res://Enemigos/Codigos/estados/estado_enemigo_destruido.gd" id="11_k1jry"]
+[ext_resource type="Texture2D" uid="uid://c3uwuowcat52g" path="res://Enemigos/Wobbuffet/Sprites/DestroySmoke.png" id="12_w5jsm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vp2mh"]
-radius = 12.0
-height = 34.0
+radius = 11.0
+height = 22.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n1gvf"]
-height = 34.0
+radius = 8.0
+height = 16.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ox7xr"]
-radius = 8.0
+height = 20.0
 
 [sub_resource type="Animation" id="Animation_pn5ni"]
 length = 0.001
@@ -156,7 +157,7 @@ tracks/2/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("5_vrnvq")
+"stream": ExtResource("5_kr415")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -171,7 +172,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("6_k285m")
+"stream": ExtResource("6_sxk0h")
 }],
 "times": PackedFloat32Array(0.0333333)
 }
@@ -235,7 +236,7 @@ tracks/2/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("5_vrnvq")
+"stream": ExtResource("5_kr415")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -250,7 +251,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("6_k285m")
+"stream": ExtResource("6_sxk0h")
 }],
 "times": PackedFloat32Array(0.0333333)
 }
@@ -327,7 +328,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("5_vrnvq")
+"stream": ExtResource("5_kr415")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -382,7 +383,7 @@ tracks/3/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("5_vrnvq")
+"stream": ExtResource("5_kr415")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -548,40 +549,37 @@ _data = {
 "RESET": SubResource("Animation_a0k0e")
 }
 
-[node name="Wobbuffet" type="CharacterBody2D"]
+[node name="Darumaka" type="CharacterBody2D"]
 collision_layer = 272
-collision_mask = 513
-script = ExtResource("1_tdnmu")
+collision_mask = 529
+script = ExtResource("1_ocr1g")
 
-[node name="CajaDanio" parent="." instance=ExtResource("2_h33w8")]
+[node name="CajaDanio" parent="." instance=ExtResource("2_8kyww")]
 position = Vector2(1, 0)
 collision_layer = 16
-collision_mask = 3
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CajaDanio"]
-position = Vector2(-1, -14)
+position = Vector2(-1, -8)
 shape = SubResource("CapsuleShape2D_vp2mh")
 debug_color = Color(0.382813, 0.7, 0, 0.42)
 
-[node name="HitBox" parent="." instance=ExtResource("3_7pcth")]
+[node name="HitBox" parent="." instance=ExtResource("3_y5k35")]
 position = Vector2(1, 0)
 collision_layer = 16
-collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(-1, -14)
+position = Vector2(-1, -8)
 shape = SubResource("CapsuleShape2D_n1gvf")
 debug_color = Color(0.7, 0, 0, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-3, -8)
-texture = ExtResource("4_0ebdx")
-hframes = 15
-vframes = 12
-frame = 6
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_vnwsp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -13)
+position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_ox7xr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -591,22 +589,22 @@ libraries = {
 autoplay = "inactivo_Izquierda"
 
 [node name="MaquinaEstadoEnemigo" type="Node" parent="."]
-script = ExtResource("7_rnnxg")
+script = ExtResource("7_1ikfn")
 
 [node name="Inactivo" type="Node" parent="MaquinaEstadoEnemigo" node_paths=PackedStringArray("despues_estado")]
-script = ExtResource("8_16vhy")
+script = ExtResource("8_rhw40")
 despues_estado = NodePath("../Pasear")
 
 [node name="Pasear" type="Node" parent="MaquinaEstadoEnemigo" node_paths=PackedStringArray("despues_estado")]
-script = ExtResource("9_a6rna")
+script = ExtResource("9_d5tdt")
 despues_estado = NodePath("../Inactivo")
 
 [node name="Golpeado" type="Node" parent="MaquinaEstadoEnemigo" node_paths=PackedStringArray("despues_estado")]
-script = ExtResource("10_cu10u")
+script = ExtResource("10_tnleu")
 despues_estado = NodePath("../Inactivo")
 
 [node name="Destuir" type="Node" parent="MaquinaEstadoEnemigo"]
-script = ExtResource("11_gxx61")
+script = ExtResource("11_k1jry")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 max_polyphony = 4
@@ -614,10 +612,13 @@ max_polyphony = 4
 [node name="Destrudio" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(1, -18)
-texture = ExtResource("10_docf7")
+texture = ExtResource("12_w5jsm")
 hframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Destrudio"]
 libraries = {
 "": SubResource("AnimationLibrary_ax2xk")
 }
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1

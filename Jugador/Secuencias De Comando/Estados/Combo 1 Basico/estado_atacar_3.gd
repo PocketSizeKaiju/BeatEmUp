@@ -38,7 +38,7 @@ func entrar() -> void:
 func salir() -> void:
 	animation_player.animation_finished.disconnect(terminarAtaque)
 	atacando = false
-	caja_danio.monitoring = false
+	caja_danio.set_deferred("monitoring", false)
 
 #Que pasa durante el _process update del estado
 func proceso( _delta: float) -> Estado:

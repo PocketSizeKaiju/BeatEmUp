@@ -8,11 +8,14 @@ signal enemigo_daniado(caja_danio: HurtBox)
 signal enemigo_destruido(caja_danio: HurtBox)
 
 @export var hp: int = 10
+@export var perseguido: CharacterBody2D
+@export var sprite_distinto: Texture2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer as AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Sprite2D as Sprite2D
 @onready var maquina_estado_enemigo: MaquinaDeEstadoEnemigo = $MaquinaEstadoEnemigo as MaquinaDeEstadoEnemigo
 @onready var hit_box: HitBox = $HitBox as HitBox
+@onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D as NavigationAgent2D
 
 var direccion_cardinal : Vector2 = Vector2.LEFT
 var direccion : Vector2 = Vector2.ZERO
@@ -23,8 +26,13 @@ func _ready() -> void:
 	maquina_estado_enemigo.inicializar(self)
 	jugador = AdministradorGlobalJugador.jugador
 	hit_box.Daniado.connect(_tomar_danio)
+	if sprite_distinto:
+		sprite_2d.texture = sprite_distinto
 
 func _physics_process(_delta: float) -> void:
+	if navigation_agent:
+		navigation_agent.target_position = perseguido.global_position
+		velocity.x = global_position.direction_to(navigation_agent.get_next_path_position()).x * 60.0
 	if not is_on_floor():
 		velocity += get_gravity() * _delta
 	
