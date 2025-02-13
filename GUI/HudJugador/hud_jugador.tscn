@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bieeomljdwb2q"]
+[gd_scene load_steps=11 format=3 uid="uid://bieeomljdwb2q"]
 
 [ext_resource type="Script" path="res://GUI/HudJugador/hud_jugador.gd" id="1_iomax"]
 [ext_resource type="Texture2D" uid="uid://iqjcmyuin46t" path="res://Assets/UI/HP Barra/base.png" id="2_f7gai"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://mn3nlp2iqt8v" path="res://Assets/UI/HP Barra/Relleno.png" id="4_tag7q"]
 [ext_resource type="Texture2D" uid="uid://wjrnd8tfodfx" path="res://Assets/UI/HP Barra/retrato-sheet.png" id="5_qhgfw"]
 [ext_resource type="FontFile" uid="uid://d4ht22e4gv3ma" path="res://Assets/UI/HP Barra/vertopal.com_vgasys.ttf" id="6_ilkdf"]
+[ext_resource type="PackedScene" uid="uid://b84e8inlk8suh" path="res://GUI/Inventario/Escenas/inv_ui.tscn" id="7_wsble"]
 
 [sub_resource type="Animation" id="Animation_dhv8x"]
 resource_name = "Hurt"
@@ -70,7 +71,7 @@ _data = {
 [node name="HudJugador" type="CanvasLayer"]
 script = ExtResource("1_iomax")
 
-[node name="Control" type="Control" parent="."]
+[node name="HP_Barra" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -78,7 +79,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Control"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HP_Barra"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -95,14 +96,14 @@ texture_progress = ExtResource("4_tag7q")
 texture_progress_offset = Vector2(59, 75)
 tint_progress = Color(0.407843, 0.952941, 0.823529, 1)
 
-[node name="Retrato" type="Sprite2D" parent="Control"]
+[node name="Retrato" type="Sprite2D" parent="HP_Barra"]
 position = Vector2(1016, 94)
 scale = Vector2(2, 2)
 texture = ExtResource("5_qhgfw")
 hframes = 3
 region_rect = Rect2(2.64935, 0.00907898, 27.7433, 27.4026)
 
-[node name="Max" type="Label" parent="Control"]
+[node name="Max" type="Label" parent="HP_Barra"]
 layout_mode = 0
 offset_left = 1043.0
 offset_top = 166.0
@@ -111,7 +112,7 @@ offset_bottom = 189.0
 theme_override_fonts/font = ExtResource("6_ilkdf")
 text = "10"
 
-[node name="Actual" type="Label" parent="Control"]
+[node name="Actual" type="Label" parent="HP_Barra"]
 layout_mode = 0
 offset_left = 1006.0
 offset_top = 166.0
@@ -120,9 +121,16 @@ offset_bottom = 189.0
 theme_override_fonts/font = ExtResource("6_ilkdf")
 text = "10"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HP_Barra"]
 libraries = {
 "": SubResource("AnimationLibrary_1wm71")
 }
 
-[connection signal="animation_finished" from="Control/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Inv_UI" parent="HBoxContainer" instance=ExtResource("7_wsble")]
+layout_mode = 2
+
+[connection signal="animation_finished" from="HP_Barra/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

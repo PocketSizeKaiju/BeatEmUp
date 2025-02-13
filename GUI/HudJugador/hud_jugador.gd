@@ -1,10 +1,10 @@
 extends CanvasLayer
 
-@onready var hp_bar: TextureProgressBar = $Control/TextureProgressBar as TextureProgressBar
-@onready var max: Label = $Control/Max as Label
-@onready var actual: Label = $Control/Actual as Label
-@onready var animation_player: AnimationPlayer = $Control/AnimationPlayer as AnimationPlayer
-@onready var retrato: Sprite2D = $Control/Retrato as Sprite2D
+@onready var hp_bar: TextureProgressBar = $HP_Barra/TextureProgressBar as TextureProgressBar
+@onready var max: Label = $HP_Barra/Max as Label
+@onready var actual: Label = $HP_Barra/Actual as Label
+@onready var animation_player: AnimationPlayer = $HP_Barra/AnimationPlayer as AnimationPlayer
+@onready var retrato: Sprite2D = $HP_Barra/Retrato as Sprite2D
 
 const LLENA:Color = "68f3d2"
 const MEDIA:Color = "f2d757"

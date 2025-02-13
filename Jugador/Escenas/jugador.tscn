@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://twcgvo3cib26"]
+[gd_scene load_steps=55 format=3 uid="uid://twcgvo3cib26"]
 
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/jugador.gd" id="1_qqhll"]
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/maquinaDeEstadoJugador.gd" id="2_1fc5y"]
@@ -18,7 +18,6 @@
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/estado_railgun.gd" id="14_7xhtb"]
 [ext_resource type="AudioStream" uid="uid://cm2e27ykcd6lu" path="res://Assets/Sound Effects/Kick-SFX.mp3" id="15_nb04w"]
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/estado_golpeado.gd" id="16_0wkw1"]
-[ext_resource type="PackedScene" uid="uid://b84e8inlk8suh" path="res://GUI/Inventario/Escenas/inv_ui.tscn" id="18_6w1up"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rqvgr"]
 size = Vector2(19, 52)
@@ -1805,9 +1804,3 @@ libraries = {
 [node name="Audio" type="Node" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio"]
-
-[node name="Inv_UI" parent="." instance=ExtResource("18_6w1up")]
-offset_left = 14.0
-offset_top = -116.0
-offset_right = 55.0
-offset_bottom = -53.0

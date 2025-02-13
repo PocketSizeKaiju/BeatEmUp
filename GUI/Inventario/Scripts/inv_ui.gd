@@ -11,7 +11,7 @@ func _ready() -> void:
 	cerrar()
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_end"):
+	if Input.is_action_just_pressed("Menu"):
 		if esta_abierto:
 			cerrar()
 		else:
