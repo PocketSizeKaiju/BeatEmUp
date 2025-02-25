@@ -4,22 +4,24 @@
 [ext_resource type="Script" path="res://GUI/Inventario/Scripts/inv_ui_slot.gd" id="1_ao8y4"]
 
 [node name="Inv_UI_slot" type="Panel"]
-custom_minimum_size = Vector2(16, 16)
+custom_minimum_size = Vector2(160, 160)
 anchors_preset = -1
-anchor_right = 0.014
-anchor_bottom = 0.025
-offset_right = -0.128
-offset_bottom = -0.200001
+anchor_right = 0.139
+anchor_bottom = 0.244
+offset_top = -2.0
+offset_right = -0.128021
+offset_bottom = -0.112015
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ao8y4")
 
 [node name="Fondo" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
 texture = ExtResource("1_7b6io")
 centered = false
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-custom_minimum_size = Vector2(16, 16)
+custom_minimum_size = Vector2(160, 160)
 layout_mode = 0
 offset_right = 16.0
 offset_bottom = 16.0
@@ -28,3 +30,4 @@ offset_bottom = 16.0
 layout_mode = 2
 
 [node name="ItemDisplay" type="Sprite2D" parent="CenterContainer/Panel"]
+scale = Vector2(10, 10)

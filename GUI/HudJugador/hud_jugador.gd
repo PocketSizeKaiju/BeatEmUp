@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var hp_bar: TextureProgressBar = $HP_Barra/TextureProgressBar as TextureProgressBar
-@onready var max: Label = $HP_Barra/Max as Label
+@onready var maximo: Label = $HP_Barra/Max as Label
 @onready var actual: Label = $HP_Barra/Actual as Label
 @onready var animation_player: AnimationPlayer = $HP_Barra/AnimationPlayer as AnimationPlayer
 @onready var retrato: Sprite2D = $HP_Barra/Retrato as Sprite2D
@@ -10,7 +10,7 @@ const LLENA:Color = "68f3d2"
 const MEDIA:Color = "f2d757"
 const OJO:Color = "ea004c"
 
-var porcentaje:int = 100
+var porcentaje:float = 100
 
 func _ready() -> void:
 	pass
@@ -21,7 +21,7 @@ func actualizar_hp(_hp: int, _max_hp: int) -> void:
 	hp_bar.value = _hp
 	hp_bar.max_value = _max_hp
 	
-	max.text = str(_max_hp)
+	maximo.text = str(_max_hp)
 	actual.text = str(_hp)
 	
 	porcentaje = (hp_bar.value/hp_bar.max_value) * 100
@@ -33,7 +33,7 @@ func actualizar_hp(_hp: int, _max_hp: int) -> void:
 		hp_bar.tint_progress = OJO
 
 
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	if porcentaje >= 50:
 		retrato.frame = 0
 	elif porcentaje < 50 && porcentaje > 20:

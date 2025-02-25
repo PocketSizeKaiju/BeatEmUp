@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3vgl15l5os0b"
-path="res://.godot/imported/Railgun32.png-75d5d0b076a69b486d4a4679c68545e6.ctex"
+uid="uid://bb4x8tt3gv21x"
+path="res://.godot/imported/BALL.png-e524ce13bb6cfc9641f31c8dcb5178e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/DRSprites/Ataques/Railgun/Separados/Preparando/Railgun32.png"
-dest_files=["res://.godot/imported/Railgun32.png-75d5d0b076a69b486d4a4679c68545e6.ctex"]
+source_file="res://Assets/Misc/BALL.png"
+dest_files=["res://.godot/imported/BALL.png-e524ce13bb6cfc9641f31c8dcb5178e8.ctex"]
 
 [params]
 

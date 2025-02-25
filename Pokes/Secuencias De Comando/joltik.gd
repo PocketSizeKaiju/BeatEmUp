@@ -3,6 +3,8 @@ extends Node2D
 @onready var entrenador: Jugador = $"../.." as Jugador
 @onready var railgun: Node2D = $Railgun
 
+@export var party_slot: Item_Inventario
+
 var pos_gancho = Vector2()
 var enganchado = false
 var largo_cuerda = 500

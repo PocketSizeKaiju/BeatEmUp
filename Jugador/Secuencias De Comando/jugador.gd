@@ -6,6 +6,8 @@ extends CharacterBody2D
 signal cambioDireccion(nueva_direccion: Vector2)
 signal jugador_daniado(caja_danio: HurtBox)
 
+
+@onready var pokes: Node2D = $Pokes
 @export var inventorio: Inventario
 
 @export_category("Stats")
@@ -33,6 +35,8 @@ func _ready() -> void:
 	maquina_de_estados.inicializar(self)
 	hit_box.Daniado.connect(_tomar_danio)
 	actualizar_hp(99)
+	for poke in pokes.get_children():
+		inventorio.insertar(poke.party_slot)
 
 func _process(_delta: float) -> void:
 	if not is_on_floor():

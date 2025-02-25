@@ -7,6 +7,7 @@ extends Control
 var esta_abierto = false
 
 func _ready() -> void:
+	inv.actualizar_slots.connect(actualizar_slots)
 	actualizar_slots()
 	cerrar()
 
@@ -26,5 +27,5 @@ func abrir() -> void:
 	esta_abierto = true
 
 func actualizar_slots():
-	for i in range(min(inv.items.size(), slots.size())):
-		slots[i].actualizar(inv.items[i])
+	for i in range(min(inv.slots.size(), slots.size())):
+		slots[i].actualizar(inv.slots[i])

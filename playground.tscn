@@ -186,7 +186,7 @@ sources/0 = SubResource("TileSetAtlasSource_0l1df")
 [node name="Playground" type="Node2D"]
 
 [node name="Jugador" parent="." instance=ExtResource("1_jcobk")]
-position = Vector2(117, 196)
+position = Vector2(-120, -100)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_4lbxc")

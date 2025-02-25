@@ -1,13 +1,14 @@
-[gd_scene load_steps=55 format=3 uid="uid://twcgvo3cib26"]
+[gd_scene load_steps=58 format=3 uid="uid://twcgvo3cib26"]
 
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/jugador.gd" id="1_qqhll"]
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/maquinaDeEstadoJugador.gd" id="2_1fc5y"]
 [ext_resource type="Texture2D" uid="uid://de6g56xuybyxi" path="res://Assets/DaruSpritePack.png" id="2_5v1x8"]
 [ext_resource type="PackedScene" uid="uid://x66bwt3epwek" path="res://Pokes/Escenas/joltik.tscn" id="2_8pcku"]
-[ext_resource type="Resource" uid="uid://bpq5tstu4wabk" path="res://GUI/Inventario/Daru_Inventario.tres" id="2_g6fe0"]
+[ext_resource type="Resource" uid="uid://qcdjoyxj2pwn" path="res://GUI/Inventario/Daru_Inventario.tres" id="2_wuo3c"]
 [ext_resource type="PackedScene" uid="uid://chb1hlkcnx1d0" path="res://NodosGenerales/HurtBox/caja_danio.tscn" id="3_qumtf"]
 [ext_resource type="PackedScene" uid="uid://bu3ljko7nu1jj" path="res://NodosGenerales/HitBox/HitBox.tscn" id="4_44ktm"]
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/estado_inactivo.gd" id="5_rg1q2"]
+[ext_resource type="Script" path="res://Jugador/Secuencias De Comando/poke_bola_summoner.gd" id="6_6v8si"]
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/estado_caminar.gd" id="6_oklnm"]
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/estado_aire.gd" id="7_c6u15"]
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/estado_cayendo.gd" id="8_0rr7w"]
@@ -1031,6 +1032,18 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PokeBolaSummoner:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, -30)]
+}
 
 [sub_resource type="Animation" id="Animation_tmyjj"]
 resource_name = "Railgun_Empieza_Derecha"
@@ -1404,6 +1417,86 @@ tracks/1/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_q2714"]
+resource_name = "Tirar_bola_Izquierda"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [11, 17]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PokeBolaSummoner:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(-8, -32), Vector2(-14, -30)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_8oyet"]
+resource_name = "Tirar_bola_Derecha"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [11, 17]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PokeBolaSummoner:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(4, -30), Vector2(10, -30)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_twle7"]
 _data = {
 "Atacando_2_Empieza_Derecha": SubResource("Animation_v440s"),
@@ -1432,7 +1525,9 @@ _data = {
 "Railgun_Tirando_Derecha": SubResource("Animation_5pfmi"),
 "Railgun_Tirando_Izquierda": SubResource("Animation_h8835"),
 "Saltar_Derecha": SubResource("Animation_4npr0"),
-"Saltar_Izquierda": SubResource("Animation_fcprt")
+"Saltar_Izquierda": SubResource("Animation_fcprt"),
+"Tirar_bola_Derecha": SubResource("Animation_8oyet"),
+"Tirar_bola_Izquierda": SubResource("Animation_q2714")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nj4en"]
@@ -1692,9 +1787,9 @@ _data = {
 }
 
 [node name="Jugador" type="CharacterBody2D"]
-collision_mask = 562
+collision_mask = 560
 script = ExtResource("1_qqhll")
-inventorio = ExtResource("2_g6fe0")
+inventorio = ExtResource("2_wuo3c")
 hp = 8
 max_hp = 8
 
@@ -1723,6 +1818,10 @@ monitoring = false
 position = Vector2(-4, -34)
 shape = SubResource("RectangleShape2D_8mbym")
 debug_color = Color(0.992785, 0, 0.24713, 0.42)
+
+[node name="PokeBolaSummoner" type="Marker2D" parent="."]
+position = Vector2(10, -30)
+script = ExtResource("6_6v8si")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
