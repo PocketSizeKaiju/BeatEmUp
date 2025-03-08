@@ -36,7 +36,7 @@ func proceso( _delta: float) -> Estado:
 	if pokes:
 		var joltik = pokes.get_node_or_null("Joltik")
 		if Input.is_action_just_pressed("especial") && joltik:
-			return railgun
+			return #railgun
 	
 	jugador.velocity = Vector2.ZERO
 	

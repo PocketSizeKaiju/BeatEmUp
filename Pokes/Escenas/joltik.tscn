@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://bs5ucdaqr3h5e" path="res://Efectos/railgun.tscn" id="2_y5hda"]
 
 [node name="Joltik" type="Node2D"]
-visible = false
 script = ExtResource("1_5k6v4")
 party_slot = ExtResource("2_prn5u")
 

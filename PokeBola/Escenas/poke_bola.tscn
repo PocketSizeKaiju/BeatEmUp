@@ -7,7 +7,7 @@
 radius = 3.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_daoto"]
-radius = 3.16228
+radius = 4.0
 
 [node name="PokeBola" type="RigidBody2D"]
 collision_layer = 2
@@ -25,3 +25,12 @@ texture = ExtResource("2_pif7s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_daoto")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_cuando_atrapar_poke"]
+[connection signal="area_entered" from="Area2D" to="." method="_cuando_atrapar_poke"]
+[connection signal="body_entered" from="Area2D" to="." method="_cuando_atrapar_poke"]
+[connection signal="timeout" from="Timer" to="." method="_cuando_se_acabo"]
