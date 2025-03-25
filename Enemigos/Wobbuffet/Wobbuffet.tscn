@@ -1,7 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://clrx85fehyw3d"]
+[gd_scene load_steps=31 format=3 uid="uid://clrx85fehyw3d"]
 
 [ext_resource type="Script" path="res://Enemigos/Codigos/enemigo.gd" id="1_tdnmu"]
 [ext_resource type="PackedScene" uid="uid://chb1hlkcnx1d0" path="res://NodosGenerales/HurtBox/caja_danio.tscn" id="2_h33w8"]
+[ext_resource type="Resource" uid="uid://cm7bw8qg8og33" path="res://GUI/Inventario/Recursos/Items/Wobbuffet.tres" id="2_qgol2"]
 [ext_resource type="PackedScene" uid="uid://bu3ljko7nu1jj" path="res://NodosGenerales/HitBox/HitBox.tscn" id="3_7pcth"]
 [ext_resource type="Texture2D" uid="uid://c87ke12ebgni5" path="res://Assets/Pokes/Wobbuffet/wobbuffet.png" id="4_0ebdx"]
 [ext_resource type="AudioStream" uid="uid://cp40lkaq7x84e" path="res://Enemigos/Wobbuffet/Audio/Damage2.ogg" id="5_vrnvq"]
@@ -552,6 +553,7 @@ _data = {
 collision_layer = 272
 collision_mask = 513
 script = ExtResource("1_tdnmu")
+slot = ExtResource("2_qgol2")
 
 [node name="CajaDanio" parent="." instance=ExtResource("2_h33w8")]
 position = Vector2(1, 0)

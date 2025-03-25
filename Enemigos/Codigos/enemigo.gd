@@ -7,9 +7,11 @@ signal cambioDireccion(nueva_direccion: Vector2)
 signal enemigo_daniado(caja_danio: HurtBox)
 signal enemigo_destruido(caja_danio: HurtBox)
 
-@export var hp: int = 10
+@export var slot: Item_Inventario
+@export var hp_maximo: int = 10
 @export var perseguido: CharacterBody2D
 @export var sprite_distinto: Texture2D
+var hp = hp_maximo
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer as AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Sprite2D as Sprite2D

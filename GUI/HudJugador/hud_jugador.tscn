@@ -126,11 +126,11 @@ libraries = {
 "": SubResource("AnimationLibrary_1wm71")
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="MenuContainer" type="HBoxContainer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Inv_UI" parent="HBoxContainer" instance=ExtResource("7_wsble")]
+[node name="Inv_UI" parent="MenuContainer" instance=ExtResource("7_wsble")]
 layout_mode = 2
 
 [connection signal="animation_finished" from="HP_Barra/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -5,9 +5,10 @@ extends Estado
 @onready var aire: Estado_Cayendo = $"../Aire" as Estado
 @onready var cayendo: Estado_Saltar = $"../Cayendo" as Estado
 @onready var atacando: Estado_Atacar = $"../Atacando" as Estado
-@onready var railgun: Railgun = $"../Railgun" as Estado
-@onready var caja_danio: HurtBox = %HurtBox as HurtBox
+@onready var poke_combo: Estado_Poke_Combo = $"../PokeCombo" as Estado
+#@onready var railgun: Railgun = $"../Railgun" as Estado
 
+@onready var caja_danio: HurtBox = %HurtBox as HurtBox
 @onready var pokes: Node2D = $"../../Pokes"
 
 #Que pasa cuando el jugador entra este estado
@@ -34,9 +35,7 @@ func proceso( _delta: float) -> Estado:
 		return atacando
 	
 	if pokes:
-		var joltik = pokes.get_node_or_null("Joltik")
-		if Input.is_action_just_pressed("especial") && joltik:
-			return #railgun
+		poke_combo
 	
 	jugador.velocity = Vector2.ZERO
 	

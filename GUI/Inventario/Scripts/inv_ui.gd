@@ -1,6 +1,6 @@
 extends Control
 
-@onready var inv = preload("res://GUI/Inventario/Daru_Inventario.tres")
+@onready var inv = preload("res://GUI/Inventario/Recursos/Daru_Inventario.tres")
 @onready var slots: Array = $NinePatchRect/GridContainer.get_children()
 
 
@@ -21,10 +21,12 @@ func _process(_delta: float) -> void:
 func cerrar() -> void:
 	visible = false
 	esta_abierto = false
+	get_tree().paused = false
 
 func abrir() -> void:
 	visible = true
 	esta_abierto = true
+	get_tree().paused = true
 
 func actualizar_slots():
 	for i in range(min(inv.slots.size(), slots.size())):

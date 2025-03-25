@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cgwkor4v41336"]
+
+[ext_resource type="Shader" path="res://Efectos/shaders/blur.gdshader" id="1_p02yv"]
+
+[resource]
+shader = ExtResource("1_p02yv")
+shader_parameter/cantidad = 2.022

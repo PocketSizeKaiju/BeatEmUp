@@ -1,13 +1,104 @@
-[gd_scene load_steps=5 format=3 uid="uid://b73iynmw172ss"]
+[gd_scene load_steps=10 format=3 uid="uid://b73iynmw172ss"]
 
 [ext_resource type="Script" path="res://PokeBola/Secuencias de Comando/poke_bola.gd" id="1_6dchr"]
 [ext_resource type="Texture2D" uid="uid://bb4x8tt3gv21x" path="res://Assets/Misc/BALL.png" id="2_pif7s"]
+[ext_resource type="Texture2D" uid="uid://c3uwuowcat52g" path="res://Enemigos/Wobbuffet/Sprites/DestroySmoke.png" id="3_4xnsm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v0pd1"]
 radius = 3.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_daoto"]
-radius = 4.0
+radius = 6.0
+
+[sub_resource type="Animation" id="Animation_jd6qc"]
+resource_name = "AtraparPoke"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fxs:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 4, 3, 2, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fxs:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_r0lcf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fxs:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fxs:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.628319]
+}
+
+[sub_resource type="Animation" id="Animation_0jqa1"]
+resource_name = "wiggle"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.466667, 0.5, 0.55, 0.6, 0.65, 0.966667, 1, 1.05, 1.1, 1.15, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.628319, 0.628319, -0.628319, 0.628319, 0.628319, -0.628319, 0.628319, -0.628319, 0.628319, 0.628319, -0.628319, 0.628319, -0.628319, 0.628319, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kg3qa"]
+_data = {
+"AtraparPoke": SubResource("Animation_jd6qc"),
+"RESET": SubResource("Animation_r0lcf"),
+"wiggle": SubResource("Animation_0jqa1")
+}
 
 [node name="PokeBola" type="RigidBody2D"]
 collision_layer = 2
@@ -19,9 +110,12 @@ shape = SubResource("CircleShape2D_v0pd1")
 debug_color = Color(0.48018, 0.437504, 1, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.628319
 texture = ExtResource("2_pif7s")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_daoto")
@@ -30,7 +124,17 @@ shape = SubResource("CircleShape2D_daoto")
 wait_time = 4.0
 one_shot = true
 
-[connection signal="body_entered" from="." to="." method="_cuando_atrapar_poke"]
-[connection signal="area_entered" from="Area2D" to="." method="_cuando_atrapar_poke"]
-[connection signal="body_entered" from="Area2D" to="." method="_cuando_atrapar_poke"]
+[node name="Fxs" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -5)
+texture = ExtResource("3_4xnsm")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kg3qa")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_cuando_toca_poke"]
 [connection signal="timeout" from="Timer" to="." method="_cuando_se_acabo"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

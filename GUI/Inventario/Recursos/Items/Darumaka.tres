@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item_Inventario" load_steps=3 format=3 uid="uid://c80thvaalllfp"]
+
+[ext_resource type="Script" path="res://GUI/Inventario/Scripts/inventory_item.gd" id="1_voum6"]
+[ext_resource type="Texture2D" uid="uid://dki7lmh1a3qxw" path="res://Assets/Pokes/darumaka.png" id="2_orx4v"]
+
+[resource]
+script = ExtResource("1_voum6")
+nombre = "Darumaka"
+textura = ExtResource("2_orx4v")
