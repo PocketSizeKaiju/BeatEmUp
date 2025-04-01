@@ -31,3 +31,30 @@ func abrir() -> void:
 func actualizar_slots():
 	for i in range(min(inv.slots.size(), slots.size())):
 		slots[i].actualizar(inv.slots[i])
+
+func _input(event: InputEvent) -> void:
+	if esta_abierto:
+		if event.is_action_pressed("abajo") || event.is_action_pressed("derecha"):
+			var current = slots.filter(func(inv): return inv.selector.visible == true )
+			if current == []:
+				slots[0].seleccionar(inv.slots[0])
+			else:
+				var index = slots.find(current[0])
+				if index+1 >= inv.slots.size():
+					slots[index].deseleccionar(inv.slots[index])
+					slots[0].seleccionar(inv.slots[0])
+				else:
+					slots[index].deseleccionar(inv.slots[index])
+					slots[index+1].seleccionar(inv.slots[index+1])
+		elif event.is_action_pressed("arriba") || event.is_action_pressed("izquierda"):
+			var current = slots.filter(func(inv): return inv.selector.visible == true )
+			if current == []:
+				slots[0].seleccionar(inv.slots[0])
+			else:
+				var index = slots.find(current[0])
+				if index-1 >= inv.slots.size():
+					slots[index].deseleccionar(inv.slots[index])
+					slots[0].seleccionar(inv.slots[0])
+				else:
+					slots[index].deseleccionar(inv.slots[index])
+					slots[index-1].seleccionar(inv.slots[index-1])
