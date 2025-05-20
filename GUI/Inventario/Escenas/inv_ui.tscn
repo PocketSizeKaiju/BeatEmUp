@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b84e8inlk8suh"]
+[gd_scene load_steps=6 format=3 uid="uid://b84e8inlk8suh"]
 
 [ext_resource type="Script" path="res://GUI/Inventario/Scripts/inv_ui.gd" id="1_ckgcp"]
 [ext_resource type="Material" uid="uid://cgwkor4v41336" path="res://Efectos/materials/blur.tres" id="2_cg2h8"]
 [ext_resource type="Texture2D" uid="uid://b7cpvwrxdpv7i" path="res://Assets/UI/Inventario/inventory-background.png" id="2_ibe31"]
 [ext_resource type="PackedScene" uid="uid://b4t3lfqr2y53t" path="res://GUI/Inventario/Escenas/inv_ui_slot.tscn" id="3_kkwgc"]
+[ext_resource type="PackedScene" uid="uid://x7ppkk0jaeko" path="res://GUI/Inventario/Escenas/combo_asignador.tscn" id="5_gken0"]
 
 [node name="Inv_UI" type="Control"]
 process_mode = 3
@@ -75,3 +76,62 @@ layout_mode = 2
 
 [node name="Inv_UI_slot6" parent="NinePatchRect/GridContainer" instance=ExtResource("3_kkwgc")]
 layout_mode = 2
+
+[node name="PokeDesc" type="NinePatchRect" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 495.0
+offset_top = 122.0
+offset_right = 1053.0
+offset_bottom = -143.0
+grow_vertical = 2
+texture = ExtResource("2_ibe31")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="Inv_UI_desc" parent="PokeDesc" instance=ExtResource("3_kkwgc")]
+layout_mode = 1
+offset_left = 14.0
+offset_top = 16.0
+offset_right = 96.438
+offset_bottom = 82.548
+
+[node name="Nombre" type="RichTextLabel" parent="PokeDesc"]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 26.0
+offset_right = 366.0
+offset_bottom = 76.0
+text = "Nombre Poké"
+
+[node name="Stats" type="RichTextLabel" parent="PokeDesc"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 85.0
+offset_right = 401.0
+offset_bottom = 168.0
+text = "Stats y
+cosas"
+
+[node name="ComboSelector" type="GridContainer" parent="PokeDesc"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 197.0
+offset_right = 532.0
+offset_bottom = 359.0
+
+[node name="ComboAsignador" parent="PokeDesc/ComboSelector" instance=ExtResource("5_gken0")]
+layout_mode = 2
+text = "Combo 1"
+
+[node name="ComboAsignador2" parent="PokeDesc/ComboSelector" instance=ExtResource("5_gken0")]
+layout_mode = 2
+text = "Combo 2"
+
+[node name="ComboAsignador3" parent="PokeDesc/ComboSelector" instance=ExtResource("5_gken0")]
+layout_mode = 2
+text = "Combo 3"

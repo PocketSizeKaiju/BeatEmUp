@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://x66bwt3epwek"]
+[gd_scene load_steps=3 format=3 uid="uid://x66bwt3epwek"]
 
 [ext_resource type="Script" path="res://Pokes/Secuencias De Comando/joltik.gd" id="1_5k6v4"]
-[ext_resource type="Resource" uid="uid://ddgule12dawon" path="res://GUI/Inventario/Items/Joltik.tres" id="2_prn5u"]
-[ext_resource type="PackedScene" uid="uid://bs5ucdaqr3h5e" path="res://Efectos/railgun.tscn" id="2_y5hda"]
+[ext_resource type="Resource" uid="uid://ddgule12dawon" path="res://GUI/Inventario/Recursos/Items/Joltik.tres" id="2_prn5u"]
 
 [node name="Joltik" type="Node2D"]
 script = ExtResource("1_5k6v4")
@@ -123,6 +122,3 @@ position = Vector2(14, -34)
 rotation = -2.35619
 target_position = Vector2(0, 500)
 collision_mask = 784
-
-[node name="Railgun" parent="." instance=ExtResource("2_y5hda")]
-position = Vector2(13, -27)

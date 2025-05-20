@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://twcgvo3cib26"]
+[gd_scene load_steps=59 format=3 uid="uid://twcgvo3cib26"]
 
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/jugador.gd" id="1_qqhll"]
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/maquinaDeEstadoJugador.gd" id="2_1fc5y"]
@@ -19,6 +19,9 @@
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/estado_railgun.gd" id="14_7xhtb"]
 [ext_resource type="AudioStream" uid="uid://cm2e27ykcd6lu" path="res://Assets/Sound Effects/Kick-SFX.mp3" id="15_nb04w"]
 [ext_resource type="Script" path="res://Jugador/Secuencias De Comando/Estados/estado_golpeado.gd" id="16_0wkw1"]
+
+[sub_resource type="Resource" id="Resource_h68x1"]
+metadata/__load_path__ = "res://GUI/Inventario/Items/Joltik.tres"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rqvgr"]
 size = Vector2(19, 52)
@@ -1796,6 +1799,7 @@ max_hp = 8
 [node name="Pokes" type="Node2D" parent="."]
 
 [node name="Joltik" parent="Pokes" instance=ExtResource("2_8pcku")]
+party_slot = SubResource("Resource_h68x1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -26)
