@@ -34,8 +34,8 @@ func proceso( _delta: float) -> Estado:
 	if Input.is_action_just_pressed("accion"):
 		return atacando
 	
-	if pokes:
-		poke_combo
+	if pokes && Input.is_action_just_pressed("especial"):
+		return poke_combo
 	
 	jugador.velocity = Vector2.ZERO
 	

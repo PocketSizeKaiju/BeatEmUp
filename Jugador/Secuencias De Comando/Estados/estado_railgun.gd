@@ -1,4 +1,4 @@
-class_name Railgun
+class_name Estado_Poke_Combo
 extends Estado
 
 var atacando: bool = false
@@ -13,28 +13,31 @@ var atacando: bool = false
 #@onready var animation_player_ataque: AnimationPlayer = $"../../Sprite2D/EfectoAtaque/AnimationPlayer" as AnimationPlayer
 @onready var audio: AudioStreamPlayer2D = $"../../Audio/AudioStreamPlayer2D" as AudioStreamPlayer2D
 @onready var caja_danio: HurtBox = %HurtBox as HurtBox
+@onready var poke_bola_summoner: Marker2D = $"../../PokeBolaSummoner"
 
 @onready var pokes: Node2D = $"../../Pokes"
+
 var joltik = null
 var railgun = null
 
 #Que pasa cuando el jugador entra este estado
 func entrar() -> void:
-	jugador.actualizarAnimacion("Railgun_Empieza")
-	#animation_player_ataque.play("atacar_" + jugador.direccionAnimacion())
-	animation_player.animation_finished.connect(terminarAtaque)
-	
-	audio.stream = sonido_ataque
-	audio.pitch_scale = randf_range(0.6, 1.1)
-	audio.play()
-	
-	atacando = true
-	
 	if pokes:
 		joltik = pokes.get_node_or_null("Joltik")
 		if joltik:
-			railgun = joltik.get_node_or_null("Railgun")
+			jugador.actualizarAnimacion("Railgun_Empieza")
+			animation_player.animation_finished.connect(terminarAtaque)
+			
+			audio.stream = sonido_ataque
+			audio.pitch_scale = randf_range(0.6, 1.1)
+			audio.play()
+			
+			atacando = true
+			
+			railgun = joltik.railgun
 			railgun.termino_el_railgun.connect(terminar_railgun)
+	else:
+		poke_bola_summoner.lanzarPokebola()
 
 #Que pase cuando el jugador sale del estado
 func salir() -> void:

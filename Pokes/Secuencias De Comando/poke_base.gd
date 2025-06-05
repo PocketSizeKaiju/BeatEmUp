@@ -1,3 +1,4 @@
+class_name Poke_Base
 extends Node
 
 
