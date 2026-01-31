@@ -123,6 +123,7 @@ func cheat_code(event):
 			sequence_index += 1
 			if sequence_index == sequence.size():
 				print("ENGAGE UNLIMITED FORM!!")
+				$Label.text = "ENGAGE UNLIMITED FORM!!"
 				sequence_index = 0
 		else:
 			sequence_index = 0

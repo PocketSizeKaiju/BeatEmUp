@@ -22,7 +22,7 @@ var railgun = null
 
 #Que pasa cuando el jugador entra este estado
 func entrar() -> void:
-	if pokes:
+	if !pokes:
 		joltik = pokes.get_node_or_null("Joltik")
 		if joltik:
 			jugador.actualizarAnimacion("Railgun_Empieza")
@@ -42,7 +42,8 @@ func entrar() -> void:
 #Que pase cuando el jugador sale del estado
 func salir() -> void:
 	animation_player.animation_finished.disconnect(terminarAtaque)
-	railgun.termino_el_railgun.disconnect(terminar_railgun)
+	if railgun && railgun.termino_el_railgun:
+		railgun.termino_el_railgun.disconnect(terminar_railgun)
 	atacando = false
 	caja_danio.monitoring = false
 
