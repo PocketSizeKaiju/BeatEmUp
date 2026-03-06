@@ -1,6 +1,7 @@
 extends CheckBox
 
 @onready var selector: Sprite2D = $Selector
+@onready var nombre: RichTextLabel = $"../../Nombre"
 var seleccionado: bool = false
 
 func seleccionar():
@@ -13,7 +14,9 @@ func deseleccionar():
 
 
 func checkear():
+	AdministradorGlobalJugador.asignar_poke_a_combo(nombre.text, text)
 	button_pressed = true
 
 func descheckear():
+	AdministradorGlobalJugador.desasignar_poke_a_combo(text)
 	button_pressed = false
