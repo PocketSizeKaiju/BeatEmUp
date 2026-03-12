@@ -1,4 +1,4 @@
-class_name Estado_Saltar
+class_name Estado_Cayendo
 extends Estado
 
 @onready var quieta: Estado_Quieta = $"../Quieta"

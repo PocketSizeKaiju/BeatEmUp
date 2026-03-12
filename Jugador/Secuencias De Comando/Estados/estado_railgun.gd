@@ -1,4 +1,4 @@
-class_name Estado_Poke_Combo
+class_name Estado_Railgun
 extends Estado
 
 var atacando: bool = false

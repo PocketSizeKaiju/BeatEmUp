@@ -14,7 +14,7 @@ func _ready() -> void:
 	if get_tree().get_current_scene().name == "playground":
 		invocar_jugador()
 
-func invocar_jugador():
+func invocar_jugador() -> void:
 	agregar_instancia_jugador()
 	await get_tree().create_timer(0.2).timeout
 	jugador_invocado = true

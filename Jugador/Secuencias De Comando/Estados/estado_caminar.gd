@@ -4,8 +4,8 @@ extends Estado
 @export var velocidad_mover : float = 151.0
 
 @onready var quieta: Estado_Quieta = $"../Quieta" as Estado
-@onready var aire: Estado = $"../Aire" as Estado
-@onready var cayendo: Estado_Saltar = $"../Cayendo"
+@onready var aire: Estado_Aire = $"../Aire" as Estado
+@onready var cayendo: Estado_Cayendo = $"../Cayendo"
 
 #Que pasa cuando el jugador entra este estado
 func entrar() -> void:

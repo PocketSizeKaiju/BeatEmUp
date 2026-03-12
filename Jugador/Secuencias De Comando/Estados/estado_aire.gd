@@ -1,9 +1,9 @@
-class_name Estado_Cayendo
+class_name Estado_Aire
 extends Estado
 
 @onready var quieta: Estado_Quieta = $"../Quieta"
 @onready var moviendose: Estado_Caminar = $"../Moviendose"
-@onready var cayendo: Estado_Saltar = $"../Cayendo"
+@onready var cayendo: Estado_Cayendo = $"../Cayendo"
 @onready var atacando: Estado_Atacar_2 = $"../Atacando_2"
 
 #Que pasa cuando el estado se crea

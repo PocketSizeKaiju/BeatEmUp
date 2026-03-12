@@ -2,8 +2,8 @@ class_name Estado_Quieta
 extends Estado
 
 @onready var caminar: Estado_Caminar = $"../Moviendose" as Estado
-@onready var aire: Estado_Cayendo = $"../Aire" as Estado
-@onready var cayendo: Estado_Saltar = $"../Cayendo" as Estado
+@onready var aire: Estado_Aire = $"../Aire" as Estado
+@onready var cayendo: Estado_Cayendo = $"../Cayendo" as Estado
 @onready var atacando: Estado_Atacar = $"../Atacando" as Estado
 @onready var poke_combo: Estado_Poke_Combo = $"../PokeCombo" as Estado
 #@onready var railgun: Railgun = $"../Railgun" as Estado
